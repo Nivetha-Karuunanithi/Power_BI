@@ -1,0 +1,121 @@
+table 'critical jobs (2)'
+	lineageTag: b3d278d0-815a-4356-ad55-2cf12fd1db3b
+
+	column 'Deployed Name'
+		dataType: string
+		lineageTag: 2c3b09d8-fd5c-4ff8-907f-441b9364a790
+		summarizeBy: none
+		sourceColumn: Deployed Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Deployed Name'
+		dataType: string
+		lineageTag: 504b347e-fd15-491f-a4c8-77aa2e9455b2
+		summarizeBy: none
+		sourceColumn: Short Deployed Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Schedule time'
+		dataType: string
+		lineageTag: 4ca9ec64-d8db-4104-a474-4ae4c15efb02
+		summarizeBy: none
+		sourceColumn: Schedule time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Run time'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8e346f50-24a1-4d41-a834-2b165223538e
+		summarizeBy: none
+		sourceColumn: Last Run time
+
+		variation Variation
+			isDefault
+			relationship: b9d38639-d509-460a-b234-8deb7b330385
+			defaultHierarchy: LocalDateTable_67784bfe-bbc1-4e9d-b5af-b750eaf22d63.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Success'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2317c027-f6b5-4084-bf00-615240ab8d9f
+		summarizeBy: sum
+		sourceColumn: # Success
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Failures'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d760a7f-ab00-4b70-a4eb-5ac79b096d94
+		summarizeBy: sum
+		sourceColumn: # Failures
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Documents Processed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2269db8a-28c7-40dd-8960-5cc16a9a8296
+		summarizeBy: sum
+		sourceColumn: # Documents Processed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Failure message'
+		dataType: string
+		lineageTag: f6996ec9-34de-4779-9be4-6147ca1d0186
+		summarizeBy: none
+		sourceColumn: Failure message
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: fe37b300-d60e-489f-8842-4fe386be509c
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Step taken'
+		dataType: string
+		lineageTag: 87aa4fc1-df2b-461b-9655-99083921dfe4
+		summarizeBy: none
+		sourceColumn: Step taken
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Deployed Nam1'
+		dataType: string
+		lineageTag: 12276cb9-d267-482d-a227-f1f354a4bbd5
+		summarizeBy: none
+		sourceColumn: Short Deployed Nam1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column12
+		dataType: string
+		lineageTag: e6fa6368-3546-469f-9328-0f78f1cb927f
+		summarizeBy: none
+		sourceColumn: Column12
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'critical jobs (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://bloomfieldx.sharepoint.com/sites/SkxBoomiSupport/Shared%20Documents/Report%20Generating%20Dashbaords/Boomi%20Daily%20Report/Boomi%20Realtime%20Dashboard_Daily_email.xlsx"), null, true),
+				    #"critical jobs_Sheet" = Source{[Item="critical jobs",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"critical jobs_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Deployed Name", type text}, {"Short Deployed Name", type text}, {"Schedule time", type text}, {"Last Run time", type datetime}, {"# Success", Int64.Type}, {"# Failures", Int64.Type}, {"# Documents Processed", Int64.Type}, {"Failure message", type text}, {"Comments", type text}, {"Step taken", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

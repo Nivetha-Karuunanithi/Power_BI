@@ -1,0 +1,25 @@
+relationship f4281092-6e65-4192-92f2-846eb625eace
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Boomi Process Monitoring'.'Reported Date(PST)'
+	toColumn: LocalDateTable_7726cbe5-9c2c-47c1-8e4a-5ed064980120.Date
+
+relationship 13964fc9-8223-407c-ae71-c57792bd144f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Boomi Process Monitoring'.'Received Date(PST) '
+	toColumn: LocalDateTable_7211c870-d960-4503-af6f-9536fe6001eb.Date
+
+relationship dbcb3e0c-c315-409a-84f0-6ef3da1232f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Boomi Process Monitoring'.'Start time'
+	toColumn: LocalDateTable_e9cc24cb-9acf-4e57-90c3-c99f7bc05012.Date
+
+relationship f180993b-73a4-4cf0-93d5-28b0b033b0ff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Boomi Process Monitoring'.'End time'
+	toColumn: LocalDateTable_f93ed65f-9aa5-41b4-910f-3be05f01c8b6.Date
+
+relationship b9d38639-d509-460a-b234-8deb7b330385
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'critical jobs (2)'.'Last Run time'
+	toColumn: LocalDateTable_67784bfe-bbc1-4e9d-b5af-b750eaf22d63.Date
+

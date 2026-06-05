@@ -1,0 +1,92 @@
+expression 'Errors in Boomi Process Monitoring' =
+		let
+		Source = #"Boomi Process Monitoring",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "Column26", "Column27", "Column28", "Column29", "Column30", "ProcessName - Copy.1", "short name 22"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "Column26", "Column27", "Column28", "Column29", "Column30", "ProcessName - Copy.1", "short name 22"})
+		in
+		  #"Reordered Columns"
+	lineageTag: bfbf8e87-0f02-4774-bed5-e2a9e3722a8b
+	queryGroup: 'Query Errors - 05/31/2024 7:40:44 AM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Boomi Process Monitoring (2)' =
+		let
+		Source = #"Boomi Process Monitoring",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "ProcessName - Copy.1", "short name 22"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "ProcessName - Copy.1", "short name 22"})
+		in
+		  #"Reordered Columns"
+	lineageTag: c9c833a8-b610-47e7-9250-ee08ef6f340f
+	queryGroup: 'Query Errors - 03/15/2025 8:10:52'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Boomi Process Monitoring (3)' =
+		let
+		Source = #"Boomi Process Monitoring",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "ProcessName - Copy.1", "short name 22"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "ProcessName - Copy.1", "short name 22"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 5aa59c2f-1564-413a-9f60-0c050293b872
+	queryGroup: 'Query Errors - 03/15/2025 8:13:16'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Boomi Process Monitoring (4)' =
+		let
+		Source = #"Boomi Process Monitoring",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "ProcessName - Copy.1", "short name 22"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "S.NO", "Reported Date(PST)", "Received Date(PST) ", "ProcessId", "ProcessName", "Playbook ID     ", "Failure / Error Time in PST", "Error Message", "Action(In Playbook)", "Criticality", "In Playbook", "Occurence ", "Process Reporting URL", "Action Taken", "Folder", "Analysis ", "Comments", "Scheduled type", "Error Type", "Error Name", "End Point", "Connector", "Action", "Start time", "End time", "ProcessName - Copy.1", "short name 22"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 1f699dcb-15e4-4679-be25-782bf086fb86
+	queryGroup: 'Query Errors - 03/15/2025 8:15:39'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
