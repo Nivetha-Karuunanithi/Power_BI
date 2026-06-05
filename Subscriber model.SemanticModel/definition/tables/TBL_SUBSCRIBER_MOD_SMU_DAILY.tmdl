@@ -1,0 +1,76 @@
+table TBL_SUBSCRIBER_MOD_SMU_DAILY
+	lineageTag: f8eccedd-92b5-4503-9fdb-c55ac5b4e7e1
+
+	column DISPLAY_DATE
+		dataType: string
+		lineageTag: 7d800490-491f-4255-a057-bf922ef53c97
+		summarizeBy: none
+		sourceColumn: DISPLAY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MY_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a51712be-d8df-4d50-ab52-74eecd8448ab
+		summarizeBy: none
+		sourceColumn: MY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PLAN_TYPE
+		dataType: string
+		lineageTag: e572e132-2db8-4ea4-ae6c-914fb6d19ccf
+		summarizeBy: none
+		sourceColumn: PLAN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIOD
+		dataType: string
+		lineageTag: 92f6f8b0-e4cc-4a99-a79a-75a4697ef1a5
+		summarizeBy: none
+		sourceColumn: PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY
+		dataType: string
+		lineageTag: 2156dfd7-65a7-4b10-812e-df3547b4a05e
+		summarizeBy: none
+		sourceColumn: CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EVENT
+		dataType: string
+		lineageTag: 48d19bce-945c-4985-a76b-7a833d8b2a24
+		summarizeBy: none
+		sourceColumn: EVENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNT_SUBSCRIBERS
+		dataType: double
+		lineageTag: f8489cf8-4302-4167-96c0-a5871c906565
+		summarizeBy: sum
+		sourceColumn: COUNT_SUBSCRIBERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition TBL_SUBSCRIBER_MOD_SMU_DAILY = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_QA"]}[Data], "SELECT #(lf)    DISPLAY_DATE,#(lf)    MY_DATE,#(lf)    PLAN_TYPE,#(lf)    PERIOD,#(lf)    CURRENCY,#(lf)    EVENT,#(lf)    COUNT_SUBSCRIBERS#(lf)FROM DW_QA.PUBLIC_TABLEAU.TBL_SUBSCRIBER_MOD_SMU_DAILY", null, [EnableFolding=true])
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

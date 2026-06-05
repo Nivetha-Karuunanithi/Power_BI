@@ -1,0 +1,216 @@
+table MRT_SMU__FINANCE_SUBSCRIBERS
+	lineageTag: e452ffd8-3038-4154-8c5b-fa9c617a01d3
+
+	column SUBSCRIPTION_KEY
+		dataType: string
+		lineageTag: 38b6f0b5-23ce-427c-83f5-039a307c6c0f
+		summarizeBy: none
+		sourceColumn: SUBSCRIPTION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREV_SUBSCRIPTION_KEY
+		dataType: string
+		lineageTag: 86333365-4f03-44a8-9a5d-7824dc6fd8be
+		summarizeBy: none
+		sourceColumn: PREV_SUBSCRIPTION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEXT_SUBSCRIPTION_KEY
+		dataType: string
+		lineageTag: 025b1b17-5496-4971-bec9-d9810189d0fb
+		summarizeBy: none
+		sourceColumn: NEXT_SUBSCRIPTION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBSCRIPTION_SOURCE_ID
+		dataType: string
+		lineageTag: ab221bd7-e431-4002-987a-28c26dabb0cd
+		summarizeBy: none
+		sourceColumn: SUBSCRIPTION_SOURCE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLING_CYCLE
+		dataType: string
+		lineageTag: ea869b7a-a155-4a7f-8878-ed5700514f55
+		summarizeBy: none
+		sourceColumn: BILLING_CYCLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEXT_BILLING_CYCLE
+		dataType: string
+		lineageTag: 14a0eecc-cdd6-4530-8cd5-36a12a28cc7a
+		summarizeBy: none
+		sourceColumn: NEXT_BILLING_CYCLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREV_BILLING_CYCLE
+		dataType: string
+		lineageTag: 9479a2c3-431b-4212-9645-70a52490e1a1
+		summarizeBy: none
+		sourceColumn: PREV_BILLING_CYCLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_KEY
+		dataType: string
+		lineageTag: e6c19838-5686-4ef4-96ae-1061ebf5ca05
+		summarizeBy: none
+		sourceColumn: PRODUCT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEXT_PRODUCT_KEY
+		dataType: string
+		lineageTag: f0a2ddaf-8145-4a63-b66f-2dca6e1e63d7
+		summarizeBy: none
+		sourceColumn: NEXT_PRODUCT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREV_PRODUCT_KEY
+		dataType: string
+		lineageTag: d9ce2e11-1020-49bd-b2c1-b9d5b7ce4d9b
+		summarizeBy: none
+		sourceColumn: PREV_PRODUCT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_KEY
+		dataType: string
+		lineageTag: c3d01797-9018-431f-b465-fd8e27f96e79
+		summarizeBy: none
+		sourceColumn: USER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column START_DATE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d029b96b-62e5-4bdd-ade1-541f99c046f9
+		summarizeBy: none
+		sourceColumn: START_DATE
+
+		variation Variation
+			isDefault
+			relationship: a757c778-3259-44bf-9d46-f93e528b5b83
+			defaultHierarchy: LocalDateTable_cbbe78fa-e928-4c2d-88e0-17924ec337b2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TERMINATION_DATE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0130be9e-2248-45a5-8033-18d47e4f4c05
+		summarizeBy: none
+		sourceColumn: TERMINATION_DATE
+
+		variation Variation
+			isDefault
+			relationship: 6ea05154-2666-49e2-b1c9-9bcf2f215062
+			defaultHierarchy: LocalDateTable_1ce83f36-86b4-435d-8c40-dcccf181e89a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ORIGINAL_TERM_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fc4840a3-7ab6-4851-bf6f-78f014daf187
+		summarizeBy: none
+		sourceColumn: ORIGINAL_TERM_END_DATE
+
+		variation Variation
+			isDefault
+			relationship: a197b0e3-8a3a-4953-8a48-3006302da1d2
+			defaultHierarchy: LocalDateTable_b5209850-bac6-4f5b-9f6c-1dcd44aaef93.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANCELLATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0efdb3eb-bb12-4e78-821e-13fc4457bb51
+		summarizeBy: none
+		sourceColumn: CANCELLATION_DATE
+
+		variation Variation
+			isDefault
+			relationship: e4eeeeeb-b786-43f4-8a8b-ac6b878ac183
+			defaultHierarchy: LocalDateTable_ebd39a9a-55ae-4ea5-bc46-e46495be63a6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLATFORM_NAME
+		dataType: string
+		lineageTag: 28884919-801c-41e0-9d58-604034c0627b
+		summarizeBy: none
+		sourceColumn: PLATFORM_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECEDING_DAYS_WITHOUT_PAID_SUBSCRIPTION
+		dataType: double
+		lineageTag: cb9df5fd-f437-4738-8661-c02bbc0977b2
+		summarizeBy: sum
+		sourceColumn: PRECEDING_DAYS_WITHOUT_PAID_SUBSCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROCEEDING_DAYS_WITHOUT_PAID_SUBSCRIPTION
+		dataType: double
+		lineageTag: 4cbc8aca-eecd-4873-8c99-d5c72c371be0
+		summarizeBy: sum
+		sourceColumn: PROCEEDING_DAYS_WITHOUT_PAID_SUBSCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STARTED_CATEGORY
+		dataType: string
+		lineageTag: 0b2f6650-6847-48be-b964-5566cecfdb7d
+		summarizeBy: none
+		sourceColumn: STARTED_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TERMINATION_CATEGORY
+		dataType: string
+		lineageTag: a9af825c-dcd6-43df-8132-7319031840c3
+		summarizeBy: none
+		sourceColumn: TERMINATION_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDED
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 969a4778-51dc-4c65-9f29-77602ba03236
+		summarizeBy: none
+		sourceColumn: ENDED
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MRT_SMU__FINANCE_SUBSCRIBERS = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_DEVELOPMENT"]}[Data], "SELECT#(lf)    SUBSCRIPTION_KEY,#(lf)    PREV_SUBSCRIPTION_KEY,#(lf)    NEXT_SUBSCRIPTION_KEY,#(lf)    SUBSCRIPTION_SOURCE_ID,#(lf)    BILLING_CYCLE,#(lf)    NEXT_BILLING_CYCLE,#(lf)    PREV_BILLING_CYCLE,#(lf)    PRODUCT_KEY,#(lf)    NEXT_PRODUCT_KEY,#(lf)    PREV_PRODUCT_KEY,#(lf)    USER_KEY,#(lf)    START_DATE,#(lf)    TERMINATION_DATE,#(lf)    ORIGINAL_TERM_END_DATE,#(lf)    CANCELLATION_DATE,#(lf)    PLATFORM_NAME,#(lf)    PRECEDING_DAYS_WITHOUT_PAID_SUBSCRIPTION,#(lf)    PROCEEDING_DAYS_WITHOUT_PAID_SUBSCRIPTION,#(lf)    STARTED_CATEGORY,#(lf)    TERMINATION_CATEGORY,#(lf)    ENDED#(lf)FROM DW_DEVELOPMENT.PUBLIC_MARTS.MRT_SMU__FINANCE_SUBSCRIBERS", null, [EnableFolding=true])
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

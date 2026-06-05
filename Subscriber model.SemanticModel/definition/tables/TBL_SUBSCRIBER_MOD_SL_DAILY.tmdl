@@ -1,0 +1,100 @@
+table TBL_SUBSCRIBER_MOD_SL_DAILY
+	lineageTag: c4bd8d77-1aac-4315-9f7a-436cc70845c5
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.DISPLAY_DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0e299215-684d-4674-8b4e-36b92463093e
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.DISPLAY_DATE
+
+		variation Variation
+			isDefault
+			relationship: 969976d7-fa5a-49c4-b661-05a65d4a6e9b
+			defaultHierarchy: LocalDateTable_16a409f4-9ce4-4714-a696-651622672bec.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.MY_DATE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 71e5ac66-25dd-4da6-914d-807cb2dd2017
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.MY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.SOURCE'
+		dataType: string
+		lineageTag: 6b3301a6-83c2-4498-bdea-4864689358a6
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.SOURCE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.PLAN_TYPE'
+		dataType: string
+		lineageTag: 60cc7d26-b6fe-4f78-bc6d-0a35588263cb
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.PLAN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.PERIOD'
+		dataType: string
+		lineageTag: e0bc8bd2-ef8a-4d6e-ad14-8e43896e6b11
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.CURRENCY'
+		dataType: string
+		lineageTag: 3d3f2eaf-3424-47bb-a91f-cac249a1bfe3
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.TIER'
+		dataType: string
+		lineageTag: af2ed24e-886c-439e-bd7a-075ce52ae842
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.TIER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.EVENT'
+		dataType: string
+		lineageTag: 9df967b0-01d0-45dc-ae1d-7c9aa03e1e4c
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.EVENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_SL_DAILY.COUNT_SUBSCRIBERS'
+		dataType: double
+		lineageTag: 8fdcca4e-eb20-4b52-a438-c6bcdc5d31a5
+		summarizeBy: sum
+		sourceColumn: TBL_SUBSCRIBER_MOD_SL_DAILY.COUNT_SUBSCRIBERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition TBL_SUBSCRIBER_MOD_SL_DAILY = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_QA"]}[Data], "SELECT #(lf)    DATE(""DISPLAY_DATE"") AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.DISPLAY_DATE"",#(lf)    ""MY_DATE"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.MY_DATE"",#(lf)    ""SOURCE"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.SOURCE"",#(lf)    ""PLAN_TYPE"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.PLAN_TYPE"",#(lf)    ""PERIOD"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.PERIOD"",#(lf)    ""CURRENCY"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.CURRENCY"",#(lf)    ""TIER"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.TIER"",#(lf)    ""EVENT"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.EVENT"",#(lf)    ""COUNT_SUBSCRIBERS"" AS ""TBL_SUBSCRIBER_MOD_SL_DAILY.COUNT_SUBSCRIBERS""#(lf)FROM ""DW_QA"".""PUBLIC_TABLEAU"".""TBL_SUBSCRIBER_MOD_SL_DAILY""", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

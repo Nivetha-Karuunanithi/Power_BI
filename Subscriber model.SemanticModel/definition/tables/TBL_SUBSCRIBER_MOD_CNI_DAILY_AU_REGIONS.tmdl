@@ -1,0 +1,111 @@
+table TBL_SUBSCRIBER_MOD_CNI_DAILY_AU_REGIONS
+	lineageTag: f15e46cd-35f4-4904-8da5-a7d5b01eabc9
+
+	column DISPLAY_DATE
+		dataType: string
+		lineageTag: 581f0cd5-b8e9-4f96-88f2-9d6beddb2f0e
+		summarizeBy: none
+		sourceColumn: DISPLAY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MY_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c1ebca9a-3183-40b3-9944-bc9473ac7358
+		summarizeBy: none
+		sourceColumn: MY_DATE
+
+		variation Variation
+			isDefault
+			relationship: c4921e65-52c0-4bc9-a2af-b50872f8d032
+			defaultHierarchy: LocalDateTable_20bfe50f-b8ab-478b-ad4d-15500f6c974d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SOURCE
+		dataType: string
+		lineageTag: 752e2c5b-8c0c-43fe-8a02-2ab2325dab3e
+		summarizeBy: none
+		sourceColumn: SOURCE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_TYPE
+		dataType: string
+		lineageTag: ef5853ad-3822-4007-ad1f-82f50464e364
+		summarizeBy: none
+		sourceColumn: PLAN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIOD
+		dataType: string
+		lineageTag: 8a3c9b61-a91f-442e-80e4-25885fcab2da
+		summarizeBy: none
+		sourceColumn: PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_CURRENTLY_REPPED
+		dataType: string
+		lineageTag: b41b16d5-60b2-492a-aa3f-4a6b81237f4e
+		summarizeBy: none
+		sourceColumn: IS_CURRENTLY_REPPED
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_LOCATION
+		dataType: string
+		lineageTag: e64331bf-dc17-48dd-bd02-7befb2f2815e
+		summarizeBy: none
+		sourceColumn: USER_LOCATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_LOCATION_REGION
+		dataType: string
+		lineageTag: 5c3e6347-3105-4301-b972-a24a03511ea7
+		summarizeBy: none
+		sourceColumn: USER_LOCATION_REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY
+		dataType: string
+		lineageTag: efd2caf5-03a3-46ad-824b-ab6685c5cee3
+		summarizeBy: none
+		sourceColumn: CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EVENT
+		dataType: string
+		lineageTag: 6c2f57cc-e826-4036-b490-2a6ae88a895c
+		summarizeBy: none
+		sourceColumn: EVENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNT_SUBSCRIBERS
+		dataType: double
+		lineageTag: 2c0abfa1-03af-405a-80c3-40e7e4793fd0
+		summarizeBy: sum
+		sourceColumn: COUNT_SUBSCRIBERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition TBL_SUBSCRIBER_MOD_CNI_DAILY_AU_REGIONS = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_QA"]}[Data], "SELECT #(lf)    DISPLAY_DATE,#(lf)    MY_DATE,#(lf)    SOURCE,#(lf)    PLAN_TYPE,#(lf)    PERIOD,#(lf)    IS_CURRENTLY_REPPED,#(lf)    USER_LOCATION,#(lf)    USER_LOCATION_REGION,#(lf)    CURRENCY,#(lf)    EVENT,#(lf)    COUNT_SUBSCRIBERS#(lf)FROM DW_QA.PUBLIC_TABLEAU.TBL_SUBSCRIBER_MOD_CNI_DAILY_AU_REGIONS", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

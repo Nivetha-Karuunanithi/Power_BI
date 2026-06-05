@@ -1,0 +1,111 @@
+table DATE_DIM
+	lineageTag: 3cfb0eb3-f059-4871-b333-1af7ac67f868
+
+	column DATE_HASH_KEY
+		dataType: string
+		lineageTag: e2008d18-69a6-427f-bb1e-66fdf95c1669
+		summarizeBy: none
+		sourceColumn: DATE_HASH_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MY_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c3bd0208-8bd5-419c-943b-7c1d41b37065
+		summarizeBy: none
+		sourceColumn: MY_DATE
+
+		variation Variation
+			isDefault
+			relationship: 6732f4b4-c8b2-468b-83bf-47f9d0316d5f
+			defaultHierarchy: LocalDateTable_f5f90389-a0ff-4caa-aea6-b100a3033122.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YEAR_MONTH
+		dataType: string
+		lineageTag: bc072e61-f60a-4e63-9d83-2bf9d708aa58
+		summarizeBy: none
+		sourceColumn: YEAR_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR
+		dataType: string
+		lineageTag: 7e94a9ad-3423-424a-ac84-ec762400c544
+		summarizeBy: none
+		sourceColumn: YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH
+		dataType: string
+		lineageTag: f87189d1-793b-4df8-8d32-ec8ad7d59957
+		summarizeBy: none
+		sourceColumn: MONTH
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_NAME
+		dataType: string
+		lineageTag: 5e00fbbc-834b-407c-a9ec-97c58509c4e4
+		summarizeBy: none
+		sourceColumn: MONTH_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_MON
+		dataType: double
+		lineageTag: eb47161f-c771-465f-82f0-64861ee404c3
+		summarizeBy: sum
+		sourceColumn: DAY_OF_MON
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAY_OF_WEEK
+		dataType: string
+		lineageTag: 86b5b89a-3113-4f5c-a2bf-c75d4a41f4fb
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK
+
+		annotation SummarizationSetBy = Automatic
+
+	column WEEK_OF_YEAR
+		dataType: double
+		lineageTag: 1747bb31-5950-4181-a6fd-1879e0f6c33a
+		summarizeBy: sum
+		sourceColumn: WEEK_OF_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAY_OF_YEAR
+		dataType: double
+		lineageTag: 087b7cde-5736-4afb-8ff8-26de347789aa
+		summarizeBy: sum
+		sourceColumn: DAY_OF_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DATE_DIM = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_QA"]}[Data], "SELECT#(lf)    DATE_HASH_KEY,#(lf)    MY_DATE,#(lf)    TO_VARCHAR(YEAR_MONTH) AS YEAR_MONTH,#(lf)    TO_VARCHAR(YEAR) AS YEAR,#(lf)    MONTH,#(lf)    MONTH_NAME,#(lf)    DAY_OF_MON,#(lf)    DAY_OF_WEEK,#(lf)    WEEK_OF_YEAR,#(lf)    DAY_OF_YEAR#(lf)FROM DW_DEV.PUBLIC.DATE_DIM#(lf)WHERE YEAR >= 2021#(lf)  AND MY_DATE <= CURRENT_DATE()", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,204 @@
+table TBL_CNI_ARTIST
+	lineageTag: 3fa50067-0e9f-45a3-a3a8-980264fd776c
+
+	measure 'No of Artist' = DISTINCTCOUNT(TBL_CNI_ARTIST[ARTIST_ID])
+		formatString: #,0
+		lineageTag: 4b95cbc1-8bd2-451b-a5ba-1ed357503052
+
+	column ARTIST_ID
+		dataType: string
+		lineageTag: 492ee7fc-2123-418e-b4bc-a982c331edfa
+		summarizeBy: none
+		sourceColumn: ARTIST_ID
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_NAME
+		dataType: string
+		lineageTag: b7f0eb16-0dcf-4393-b9a5-e751e25e55e5
+		summarizeBy: none
+		sourceColumn: FIRST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_NAME
+		dataType: string
+		lineageTag: fbb501c7-86f6-42ee-b2cc-d6f4335bdc2f
+		summarizeBy: none
+		sourceColumn: LAST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY
+		dataType: string
+		lineageTag: 563e62d6-341c-480d-84e9-f45ad2c17a6f
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: d13fb56a-b2f5-4389-8444-f50890b95c66
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCOUNT_LOCATION
+		dataType: string
+		lineageTag: dd5f7b2a-4b20-402f-b780-2b68400c66d1
+		summarizeBy: none
+		sourceColumn: ACCOUNT_LOCATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCOUNT_STATUS
+		dataType: string
+		lineageTag: abe01db3-dd30-43ec-a3d3-b462c4ab5615
+		summarizeBy: none
+		sourceColumn: ACCOUNT_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 07bdf704-9efa-4f32-b06b-d9ac6fe5a5ae
+		summarizeBy: none
+		sourceColumn: CREATED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IS_PREMIUM
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0d101038-b156-4bb3-9d4f-088b8b206561
+		summarizeBy: none
+		sourceColumn: IS_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_REPRESENTED
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 815e6f93-b41b-4c80-a234-5beaa9303f13
+		summarizeBy: none
+		sourceColumn: IS_REPRESENTED
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_SUCCESSFUL_LOGIN
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bc3c1c7a-83db-41c8-8b8e-fb62977fec12
+		summarizeBy: none
+		sourceColumn: LAST_SUCCESSFUL_LOGIN
+
+		variation Variation
+			isDefault
+			relationship: 4077b1ce-85b8-4ce7-b9d2-4fb23844ddc5
+			defaultHierarchy: LocalDateTable_0b2230b5-c16d-4cc8-9d9f-f97c5f73d4ee.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_SUCCESSFUL_LOGIN_LABEL
+		dataType: string
+		lineageTag: 4e31a2dc-df3f-4bf1-a9fa-8fab6112c845
+		summarizeBy: none
+		sourceColumn: LAST_SUCCESSFUL_LOGIN_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_MEDIA_ACTIVITY
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4e106ac-43a6-4eda-a0fe-edbbfa125859
+		summarizeBy: none
+		sourceColumn: LAST_MEDIA_ACTIVITY
+
+		variation Variation
+			isDefault
+			relationship: dffe86a1-863d-4c02-a90d-8b613a84736d
+			defaultHierarchy: LocalDateTable_a56f2fb6-9f0e-4ce6-89a6-d2da2310fb99.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_MEDIA_ACTIVITY_LABEL
+		dataType: string
+		lineageTag: 9e0c7c3e-8359-459a-bc6e-f81d2b4e6ae0
+		summarizeBy: none
+		sourceColumn: LAST_MEDIA_ACTIVITY_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATEST_CREATED_SUBMISSION
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d7265c62-e1f0-47a3-a5c2-7764ec669efa
+		summarizeBy: none
+		sourceColumn: LATEST_CREATED_SUBMISSION
+
+		variation Variation
+			isDefault
+			relationship: 38c269fb-8249-457d-98fa-b1038be03704
+			defaultHierarchy: LocalDateTable_a8760084-d2c7-488f-863b-1b2080efe2ad.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATEST_SUBMISSION_LABEL
+		dataType: string
+		lineageTag: d7c11707-c231-4773-a434-0d30ae057386
+		summarizeBy: none
+		sourceColumn: LATEST_SUBMISSION_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATEST_ACTIVITY_TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0998b2bc-5dff-4bd5-817f-bbfc6940de40
+		summarizeBy: none
+		sourceColumn: LATEST_ACTIVITY_TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: 40fc6f3d-511f-4805-9c14-32435c280c32
+			defaultHierarchy: LocalDateTable_6d420573-2027-4fd7-b134-a1c7b813e554.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATEST_ACTIVITY_LABEL
+		dataType: string
+		lineageTag: ac6cc574-3469-4eea-a425-4927345c873e
+		summarizeBy: none
+		sourceColumn: LATEST_ACTIVITY_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_REPRESENTED_NUM =
+			
+			IF('TBL_CNI_ARTIST'[IS_REPRESENTED] = TRUE(), 1, 0)
+		formatString: #,0
+		lineageTag: 2f752dac-aa83-4952-bb94-2c6764198fb1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TBL_CNI_ARTIST = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_QA"]}[Data], "SELECT #(lf)    ARTIST_ID,#(lf)    FIRST_NAME,#(lf)    LAST_NAME,#(lf)    COUNTRY,#(lf)    CONTINENT_CODE,#(lf)    ACCOUNT_LOCATION,#(lf)    ACCOUNT_STATUS,#(lf)    CREATED,#(lf)    IS_PREMIUM,#(lf)    IS_REPRESENTED,#(lf)    LAST_SUCCESSFUL_LOGIN,#(lf)    LAST_SUCCESSFUL_LOGIN_LABEL,#(lf)    LAST_MEDIA_ACTIVITY,#(lf)    LAST_MEDIA_ACTIVITY_LABEL,#(lf)    LATEST_CREATED_SUBMISSION,#(lf)    LATEST_SUBMISSION_LABEL,#(lf)    LATEST_ACTIVITY_TIMESTAMP,#(lf)    LATEST_ACTIVITY_LABEL#(lf)FROM DW_QA.PUBLIC_TABLEAU.TBL_CNI_ARTIST", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"CREATED", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

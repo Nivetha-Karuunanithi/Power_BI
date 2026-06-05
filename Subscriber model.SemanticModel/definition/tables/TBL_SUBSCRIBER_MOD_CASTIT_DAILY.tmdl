@@ -1,0 +1,85 @@
+table TBL_SUBSCRIBER_MOD_CASTIT_DAILY
+	lineageTag: 8b11512f-6b25-4576-ab4c-474330cfb13e
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.DISPLAY_DATE'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 148b4878-3779-4621-8425-6a305b6d67a4
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.DISPLAY_DATE
+
+		variation Variation
+			isDefault
+			relationship: a75e8420-14e4-4e46-a0bc-402af0f68b11
+			defaultHierarchy: LocalDateTable_6013196a-11b1-4bb7-a0b7-3e87438a852c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.MY_DATE'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: aeed03ed-3e41-491e-9462-14f141fff001
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.MY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.PLAN_TYPE'
+		dataType: string
+		lineageTag: 1488cd2b-324f-4b14-9c78-851a00378b3a
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.PLAN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.PERIOD'
+		dataType: string
+		lineageTag: e3f7e163-43f3-4a82-af0b-3a415eefcaf3
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.CURRENCY'
+		dataType: string
+		lineageTag: a73b4925-80b2-44b7-b6c6-b3e0c62fb1fa
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.EVENT'
+		dataType: string
+		lineageTag: a44959cc-7f75-4b9c-a9a2-e9d25e1d9f00
+		summarizeBy: none
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.EVENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TBL_SUBSCRIBER_MOD_CASTIT_DAILY.COUNT_SUBSCRIBERS'
+		dataType: double
+		formatString: #,0
+		lineageTag: 0ec50602-db66-4874-82b1-37cb0fe9786f
+		summarizeBy: sum
+		sourceColumn: TBL_SUBSCRIBER_MOD_CASTIT_DAILY.COUNT_SUBSCRIBERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	partition TBL_SUBSCRIBER_MOD_CASTIT_DAILY = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("CRXETUI-PA01056.snowflakecomputing.com","POWERBI_WH",[Implementation="2.0"]){[Name="DW_QA"]}[Data], "SELECT #(lf)    DATE(""DISPLAY_DATE"") AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.DISPLAY_DATE"",#(lf)    ""MY_DATE"" AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.MY_DATE"",#(lf)    ""PLAN_TYPE"" AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.PLAN_TYPE"",#(lf)    ""PERIOD"" AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.PERIOD"",#(lf)    ""CURRENCY"" AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.CURRENCY"",#(lf)    ""EVENT"" AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.EVENT"",#(lf)    ""COUNT_SUBSCRIBERS"" AS ""TBL_SUBSCRIBER_MOD_CASTIT_DAILY.COUNT_SUBSCRIBERS""#(lf)FROM DW_QA.PUBLIC_TABLEAU.TBL_SUBSCRIBER_MOD_CASTIT_DAILY", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

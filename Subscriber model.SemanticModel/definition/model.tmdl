@@ -1,0 +1,42 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["MRT_SMU__FINANCE_SUBSCRIBERS","TBL_SUBSCRIBER_MOD_SL_DAILY","TBL_SUBSCRIBER_MOD_CASTIT_DAILY","TBL_SUBSCRIBER_MOD_SMU_DAILY","TBL_SUBSCRIBER_MOD_FRONTIER_DAILY","TBL_SUBSCRIBER_MOD_CNI_DAILY_AU_REGIONS","TBL_SUBSCRIBER_MOD_UNIFIED_DAILY","TBL_CNI_ARTIST","TBL_CNI_ARTIST_SUBSCRIPTION_DAILY","TBL_SUBSCRIBER_MOD_CNI_DAILY","DATE_DIM"]
+
+ref table MRT_SMU__FINANCE_SUBSCRIBERS
+ref table DateTableTemplate_c0accb52-f752-450c-a9b1-22a66b23f2e0
+ref table LocalDateTable_cbbe78fa-e928-4c2d-88e0-17924ec337b2
+ref table LocalDateTable_1ce83f36-86b4-435d-8c40-dcccf181e89a
+ref table LocalDateTable_b5209850-bac6-4f5b-9f6c-1dcd44aaef93
+ref table LocalDateTable_ebd39a9a-55ae-4ea5-bc46-e46495be63a6
+ref table TBL_SUBSCRIBER_MOD_SL_DAILY
+ref table TBL_SUBSCRIBER_MOD_CASTIT_DAILY
+ref table TBL_SUBSCRIBER_MOD_SMU_DAILY
+ref table TBL_SUBSCRIBER_MOD_FRONTIER_DAILY
+ref table TBL_SUBSCRIBER_MOD_CNI_DAILY_AU_REGIONS
+ref table LocalDateTable_20bfe50f-b8ab-478b-ad4d-15500f6c974d
+ref table TBL_SUBSCRIBER_MOD_UNIFIED_DAILY
+ref table TBL_CNI_ARTIST
+ref table LocalDateTable_0b2230b5-c16d-4cc8-9d9f-f97c5f73d4ee
+ref table LocalDateTable_a56f2fb6-9f0e-4ce6-89a6-d2da2310fb99
+ref table LocalDateTable_a8760084-d2c7-488f-863b-1b2080efe2ad
+ref table LocalDateTable_6d420573-2027-4fd7-b134-a1c7b813e554
+ref table TBL_CNI_ARTIST_SUBSCRIPTION_DAILY
+ref table TBL_SUBSCRIBER_MOD_CNI_DAILY
+ref table LocalDateTable_16a409f4-9ce4-4714-a696-651622672bec
+ref table LocalDateTable_6013196a-11b1-4bb7-a0b7-3e87438a852c
+ref table LocalDateTable_bdf9da3c-ed29-4898-ad03-b680e2198b36
+ref table DATE_DIM
+ref table LocalDateTable_f5f90389-a0ff-4caa-aea6-b100a3033122
+ref table 'CNI Basic'
+ref table LocalDateTable_bc6e976b-1b14-4ad1-bd66-8dd09b7ff5e7
+
+ref cultureInfo en-IN
+
