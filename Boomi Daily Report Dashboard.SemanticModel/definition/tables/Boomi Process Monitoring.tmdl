@@ -251,14 +251,6 @@ table 'Boomi Process Monitoring'
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column26
-		dataType: string
-		lineageTag: 326f2970-0e6f-49e7-a8e7-d6a11ab517e0
-		summarizeBy: none
-		sourceColumn: Column26
-
-		annotation SummarizationSetBy = Automatic
-
 	partition 'Boomi Process Monitoring' = m
 		mode: import
 		source =

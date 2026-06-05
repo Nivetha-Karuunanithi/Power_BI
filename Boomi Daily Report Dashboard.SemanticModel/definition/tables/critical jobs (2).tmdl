@@ -98,6 +98,14 @@ table 'critical jobs (2)'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Column12
+		dataType: string
+		lineageTag: 2aadaff1-5d1a-4834-91c6-97b20c8d1f25
+		summarizeBy: none
+		sourceColumn: Column12
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'critical jobs (2)' = m
 		mode: import
 		source =
