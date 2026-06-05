@@ -1,0 +1,55 @@
+table AddressType
+	lineageTag: 62d2716d-b9bf-4bb2-b658-a186e5e16fb8
+	sourceLineageTag: [Person].[AddressType]
+
+	column AddressTypeID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e8eb6e18-1c4f-4576-849d-46e2fc2143db
+		sourceLineageTag: AddressTypeID
+		summarizeBy: count
+		sourceColumn: AddressTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: de250dc7-31eb-471b-872e-5aa5bb56aa6b
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: cf402c88-2718-4df1-8aa7-fb3e5f2f0872
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c89f15c0-a5d5-4c0a-b000-4a9d3d9bd536
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AddressType = entity
+		mode: directLake
+		source
+			entityName: AddressType
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

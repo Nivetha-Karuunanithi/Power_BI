@@ -1,0 +1,68 @@
+table Location
+	lineageTag: bb62c740-4008-4ea5-a2c6-3b40f5ca8a88
+	sourceLineageTag: [Production].[Location]
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 663ab570-d85d-4805-a7b0-edba0ecbae67
+		sourceLineageTag: LocationID
+		summarizeBy: count
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: dcae604d-f4af-4e5c-851f-684b2b41113c
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostRate
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: bccc7310-9e62-4d2e-b0f9-4f59ff7d913f
+		sourceLineageTag: CostRate
+		summarizeBy: none
+		sourceColumn: CostRate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Availability
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(18, 4)
+		lineageTag: 759cb0dd-1b2c-44c3-b11e-cf09aea6ed99
+		sourceLineageTag: Availability
+		summarizeBy: sum
+		sourceColumn: Availability
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e10eb7ee-f1ff-45ec-97e0-6422f515a933
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Location = entity
+		mode: directLake
+		source
+			entityName: Location
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,96 @@
+table StateProvince
+	lineageTag: 7da59186-2554-47ad-9807-a541d3f85fc3
+	sourceLineageTag: [Person].[StateProvince]
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 325f0f1b-2485-4640-9fcc-16e66329820d
+		sourceLineageTag: StateProvinceID
+		summarizeBy: count
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 3a3647bf-9810-48c7-91e1-14e66d5cf8e2
+		sourceLineageTag: StateProvinceCode
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 9e194ba3-1583-4456-813e-467d67ef258b
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOnlyStateProvinceFlag
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 34b92138-730d-446b-9d93-35dd5e932bf5
+		sourceLineageTag: IsOnlyStateProvinceFlag
+		summarizeBy: none
+		sourceColumn: IsOnlyStateProvinceFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 40418b2f-4e6a-4976-a578-ae0f89ccbc34
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 50fa0332-5ed5-4d13-bf3b-b5c93728d6ab
+		sourceLineageTag: TerritoryID
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 06934c3c-022d-47ad-a318-97a5ffa01655
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: be0609b2-4d73-411f-a612-a84d9ed690fd
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition StateProvince = entity
+		mode: directLake
+		source
+			entityName: StateProvince
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

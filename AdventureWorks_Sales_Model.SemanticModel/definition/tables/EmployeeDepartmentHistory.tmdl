@@ -1,0 +1,79 @@
+table EmployeeDepartmentHistory
+	lineageTag: 3fdfb6f4-b227-4a01-9171-7e10647f9c97
+	sourceLineageTag: [HumanResources].[EmployeeDepartmentHistory]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 708cfbad-1988-48c4-be61-5c31f2a4ba4b
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 562a5395-f096-45cb-bf42-430e643874cf
+		sourceLineageTag: DepartmentID
+		summarizeBy: count
+		sourceColumn: DepartmentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShiftID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 63bfcf87-2b87-4e7f-8449-cee04aaa2e82
+		sourceLineageTag: ShiftID
+		summarizeBy: count
+		sourceColumn: ShiftID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 58927777-0588-4d4e-8c8e-cbc826a3a560
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 4d641d99-edbe-4011-80da-54adb72fc8a7
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a7aa5625-91ca-4427-a0a7-5ed2c39307b3
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EmployeeDepartmentHistory = entity
+		mode: directLake
+		source
+			entityName: EmployeeDepartmentHistory
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

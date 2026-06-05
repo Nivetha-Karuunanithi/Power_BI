@@ -1,0 +1,112 @@
+table TransactionHistoryArchive
+	lineageTag: 53c010b3-c61f-408e-9da4-c829a60fc507
+	sourceLineageTag: [Production].[TransactionHistoryArchive]
+
+	column TransactionID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0fd90720-7104-4f71-9a88-effee6e875f2
+		sourceLineageTag: TransactionID
+		summarizeBy: count
+		sourceColumn: TransactionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: eddd9a4a-68bb-464d-8acf-5b6dcd4b021f
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceOrderID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0645ddb3-36fd-4f6d-a8d6-4b14b2ff351b
+		sourceLineageTag: ReferenceOrderID
+		summarizeBy: count
+		sourceColumn: ReferenceOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceOrderLineID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 573f43f9-49f5-4da3-b744-4e5bc2126b9c
+		sourceLineageTag: ReferenceOrderLineID
+		summarizeBy: count
+		sourceColumn: ReferenceOrderLineID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 35bc3cf3-7fc4-4c90-9fcd-865d19ee921f
+		sourceLineageTag: TransactionDate
+		summarizeBy: none
+		sourceColumn: TransactionDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionType
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: b51837bc-4814-49f5-820a-2ebd191d1f6a
+		sourceLineageTag: TransactionType
+		summarizeBy: none
+		sourceColumn: TransactionType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 31a5cb0e-6c40-4fec-b45d-7b05b3cc9d9a
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualCost
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 389b3819-00bc-4882-80d3-d0faec6e5476
+		sourceLineageTag: ActualCost
+		summarizeBy: sum
+		sourceColumn: ActualCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d12b98d4-5eeb-42e6-9e14-4d35145114fb
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TransactionHistoryArchive = entity
+		mode: directLake
+		source
+			entityName: TransactionHistoryArchive
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

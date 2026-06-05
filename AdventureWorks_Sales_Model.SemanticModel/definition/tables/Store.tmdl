@@ -1,0 +1,76 @@
+table Store
+	lineageTag: 7d97fe37-7497-460f-8b87-a1a037fb46b2
+	sourceLineageTag: [Sales].[Store]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7b7b7658-90c6-4193-94c8-fda943719468
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 07e02d40-4b33-481c-b52c-eae92b1964e5
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesPersonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cad7dfa1-2c6b-4bfb-b966-cbe9d6286eda
+		sourceLineageTag: SalesPersonID
+		summarizeBy: count
+		sourceColumn: SalesPersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Demographics
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d37e12e4-8690-44da-acbc-d6002d98295f
+		sourceLineageTag: Demographics
+		summarizeBy: none
+		sourceColumn: Demographics
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 8c9ce300-4c70-429b-a075-67e4b0e9b5d5
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 73094f62-466a-412c-8725-ae2af69b2338
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Store = entity
+		mode: directLake
+		source
+			entityName: Store
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

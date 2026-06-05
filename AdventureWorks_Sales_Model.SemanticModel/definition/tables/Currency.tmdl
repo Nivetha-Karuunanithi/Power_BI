@@ -1,0 +1,44 @@
+table Currency
+	lineageTag: ab4c25c2-7a74-41e3-aa03-144171920a8a
+	sourceLineageTag: [Sales].[Currency]
+
+	column CurrencyCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 2baa29f0-ed97-419e-bcdc-1b1a2823d265
+		sourceLineageTag: CurrencyCode
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 115faccd-3a44-4e8a-9226-8961e8a2f003
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0d67b899-e4f2-4806-935f-5250a8f02908
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Currency = entity
+		mode: directLake
+		source
+			entityName: Currency
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

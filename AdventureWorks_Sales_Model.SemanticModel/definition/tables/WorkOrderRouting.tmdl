@@ -1,0 +1,149 @@
+table WorkOrderRouting
+	lineageTag: 0d72e9ce-7d33-4133-b47f-be986e0055ed
+	sourceLineageTag: [Production].[WorkOrderRouting]
+
+	column WorkOrderID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 66591303-4171-424f-8ced-58f626611857
+		sourceLineageTag: WorkOrderID
+		summarizeBy: count
+		sourceColumn: WorkOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f1e5a4bc-2516-431f-953d-0397b6cfb7aa
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperationSequence
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: f304bc60-6f30-47b8-86f2-2930edc02962
+		sourceLineageTag: OperationSequence
+		summarizeBy: sum
+		sourceColumn: OperationSequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 8c6658f8-eaa4-404e-87ea-16aa86457133
+		sourceLineageTag: LocationID
+		summarizeBy: count
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledStartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 47735a34-e2a3-4cd6-bc9f-40c18a805102
+		sourceLineageTag: ScheduledStartDate
+		summarizeBy: none
+		sourceColumn: ScheduledStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledEndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3b82b4a6-a055-4d94-8d54-ce8e41d554a3
+		sourceLineageTag: ScheduledEndDate
+		summarizeBy: none
+		sourceColumn: ScheduledEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualStartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ce13449a-b4e4-4d23-bbd3-c76ef6487d2d
+		sourceLineageTag: ActualStartDate
+		summarizeBy: none
+		sourceColumn: ActualStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualEndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 46ba4cd4-d1b4-4bcf-914d-135f8640c373
+		sourceLineageTag: ActualEndDate
+		summarizeBy: none
+		sourceColumn: ActualEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualResourceHrs
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(18, 4)
+		lineageTag: 55549e29-562a-4ed9-836a-e038d282ad41
+		sourceLineageTag: ActualResourceHrs
+		summarizeBy: sum
+		sourceColumn: ActualResourceHrs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PlannedCost
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 9c8a5521-0f43-4c13-a00a-35d8eb673970
+		sourceLineageTag: PlannedCost
+		summarizeBy: sum
+		sourceColumn: PlannedCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ActualCost
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: a5082cc7-d74a-41b6-86e9-e0dec3655406
+		sourceLineageTag: ActualCost
+		summarizeBy: sum
+		sourceColumn: ActualCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f1ba4aaf-6fd2-4461-acb6-7cce988e92fa
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WorkOrderRouting = entity
+		mode: directLake
+		source
+			entityName: WorkOrderRouting
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

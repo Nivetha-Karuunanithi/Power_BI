@@ -1,0 +1,68 @@
+table SalesPersonQuotaHistory
+	lineageTag: d14e259e-9d8e-4a6e-afe0-889ab97d4ef0
+	sourceLineageTag: [Sales].[SalesPersonQuotaHistory]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 58c3cd1a-d3e7-4110-aa6b-31b2f7835519
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotaDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2dcc05bd-40f6-4159-8246-5c08ee3ff4c7
+		sourceLineageTag: QuotaDate
+		summarizeBy: none
+		sourceColumn: QuotaDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuota
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 58ce9b73-5068-45d1-86a5-8a066ae4ade5
+		sourceLineageTag: SalesQuota
+		summarizeBy: sum
+		sourceColumn: SalesQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: c179e04d-d004-4cd3-abdc-d34a13c7df71
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 85ff0d7b-1cc4-4df4-819f-f2ace69f445f
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesPersonQuotaHistory = entity
+		mode: directLake
+		source
+			entityName: SalesPersonQuotaHistory
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,45 @@
+table ScrapReason
+	lineageTag: 71097b7a-ee24-4351-8cfe-45bdb8d17c78
+	sourceLineageTag: [Production].[ScrapReason]
+
+	column ScrapReasonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: e43cbb94-3251-4670-afb6-ca1a8deb544a
+		sourceLineageTag: ScrapReasonID
+		summarizeBy: count
+		sourceColumn: ScrapReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: ce37a7fd-b00b-4823-85ef-223604ad1d08
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 141fcd95-60e8-4340-bdb7-31341ea0d45e
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ScrapReason = entity
+		mode: directLake
+		source
+			entityName: ScrapReason
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,148 @@
+table Document
+	lineageTag: 3e7d5745-16d3-497f-b06c-0277dcb8b6f8
+	sourceLineageTag: [Production].[Document]
+
+	column DocumentNode
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 8c4c4685-d1c1-489d-9709-929ee250af70
+		sourceLineageTag: DocumentNode
+		summarizeBy: none
+		sourceColumn: DocumentNode
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentLevel
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: de24aad2-00b8-4d8f-a7b8-c860c496c6d7
+		sourceLineageTag: DocumentLevel
+		summarizeBy: sum
+		sourceColumn: DocumentLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5e5c265e-f309-478d-b8e5-c3aa0ca4fbca
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Owner
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 446f5453-1ace-47a4-844f-bdff71d10086
+		sourceLineageTag: Owner
+		summarizeBy: sum
+		sourceColumn: Owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column FolderFlag
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: fd2df747-8c9a-4f5a-bd5c-b2e46d706407
+		sourceLineageTag: FolderFlag
+		summarizeBy: none
+		sourceColumn: FolderFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column FileName
+		dataType: string
+		sourceProviderType: varchar(800)
+		lineageTag: 1618ee61-664b-4b0e-9b35-09ef28381822
+		sourceLineageTag: FileName
+		summarizeBy: none
+		sourceColumn: FileName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FileExtension
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: f9017080-e6a1-479b-98e5-fc0d9d9be9e6
+		sourceLineageTag: FileExtension
+		summarizeBy: none
+		sourceColumn: FileExtension
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revision
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 5d8f4428-9dc7-4b29-bf9d-2781705a3704
+		sourceLineageTag: Revision
+		summarizeBy: none
+		sourceColumn: Revision
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChangeNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e3d1e0f4-eadb-4d1f-a4f4-551ecdcecb66
+		sourceLineageTag: ChangeNumber
+		summarizeBy: sum
+		sourceColumn: ChangeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 7451fe65-614a-4fe7-a3b0-a785f9fe735b
+		sourceLineageTag: Status
+		summarizeBy: sum
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentSummary
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: caa767e1-f4cb-4d4f-ade1-b415d5872d1d
+		sourceLineageTag: DocumentSummary
+		summarizeBy: none
+		sourceColumn: DocumentSummary
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 67389cb2-8a59-4ad7-84d6-7396333409f4
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 24dbfc87-8b07-4781-8089-7d07bf415b44
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Document = entity
+		mode: directLake
+		source
+			entityName: Document
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

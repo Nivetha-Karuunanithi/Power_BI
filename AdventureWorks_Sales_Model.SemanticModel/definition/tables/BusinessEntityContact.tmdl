@@ -1,0 +1,67 @@
+table BusinessEntityContact
+	lineageTag: ea1e6748-2ac4-4413-82d7-8f868b560a85
+	sourceLineageTag: [Person].[BusinessEntityContact]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6185cff5-13e7-4552-aa6c-ca211422e9cf
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a3210ed9-632a-4fca-bf28-5a91dccad45d
+		sourceLineageTag: PersonID
+		summarizeBy: count
+		sourceColumn: PersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactTypeID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c009a70d-3f9f-4c18-a29f-3cd91108347c
+		sourceLineageTag: ContactTypeID
+		summarizeBy: count
+		sourceColumn: ContactTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 26545540-0b77-45c7-8d4f-b1b466dc75b2
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c9918b26-b37d-4e9d-bc65-e0ebb217d604
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BusinessEntityContact = entity
+		mode: directLake
+		source
+			entityName: BusinessEntityContact
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,69 @@
+table EmployeePayHistory
+	lineageTag: 5d28a8c4-bfc9-4e61-bcdc-08fd402684e7
+	sourceLineageTag: [HumanResources].[EmployeePayHistory]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 484e7a3e-81c1-4938-9b1a-a1ebbdb28f6b
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RateChangeDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8365f105-c115-4c35-bd44-116ebe125a01
+		sourceLineageTag: RateChangeDate
+		summarizeBy: none
+		sourceColumn: RateChangeDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: e68cd6f2-0f8d-424f-b8c6-d66607f8b9d1
+		sourceLineageTag: Rate
+		summarizeBy: sum
+		sourceColumn: Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PayFrequency
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 2497a55a-40d6-4005-add1-7786fa370ff5
+		sourceLineageTag: PayFrequency
+		summarizeBy: sum
+		sourceColumn: PayFrequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 26415bf3-f3c8-4efa-b23d-ef212298c88d
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EmployeePayHistory = entity
+		mode: directLake
+		source
+			entityName: EmployeePayHistory
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

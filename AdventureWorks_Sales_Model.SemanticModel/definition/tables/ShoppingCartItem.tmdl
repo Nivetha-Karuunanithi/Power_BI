@@ -1,0 +1,78 @@
+table ShoppingCartItem
+	lineageTag: 1d411c9d-35b7-4cbc-b881-596722caa616
+	sourceLineageTag: [Sales].[ShoppingCartItem]
+
+	column ShoppingCartItemID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 761899cf-aa3b-4f30-8149-ef8d0b16d97b
+		sourceLineageTag: ShoppingCartItemID
+		summarizeBy: count
+		sourceColumn: ShoppingCartItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShoppingCartID
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f6454cab-38f6-4d3e-9c1a-4126e2f17da7
+		sourceLineageTag: ShoppingCartID
+		summarizeBy: none
+		sourceColumn: ShoppingCartID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ec9f81d5-b31f-4598-bbcf-bee1aaf04304
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b32d1278-def7-4daf-84e6-d38e18f88219
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateCreated
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: dfa990c7-28fb-4517-b3c7-2e414002ecb4
+		sourceLineageTag: DateCreated
+		summarizeBy: none
+		sourceColumn: DateCreated
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: dd13c916-dfd4-4d28-8de0-faa337139970
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShoppingCartItem = entity
+		mode: directLake
+		source
+			entityName: ShoppingCartItem
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

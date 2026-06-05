@@ -1,0 +1,98 @@
+table ProductReview
+	lineageTag: b5b79f6a-175e-4b36-aad2-77e690b655a1
+	sourceLineageTag: [Production].[ProductReview]
+
+	column ProductReviewID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 15b8b1cb-306a-48af-b843-c3d5698c78c4
+		sourceLineageTag: ProductReviewID
+		summarizeBy: count
+		sourceColumn: ProductReviewID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f914a8db-2534-40f4-b21b-1ddc23e928d1
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewerName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 24a4f026-95f9-409e-ad44-54be5014e064
+		sourceLineageTag: ReviewerName
+		summarizeBy: none
+		sourceColumn: ReviewerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 756b5b53-39db-4562-b1b7-af240a7ac516
+		sourceLineageTag: ReviewDate
+		summarizeBy: none
+		sourceColumn: ReviewDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: d0fb2152-3133-4f7a-b6f8-2a549cc28db6
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rating
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a32186c2-a73d-463c-bc67-20da8a6d6dac
+		sourceLineageTag: Rating
+		summarizeBy: sum
+		sourceColumn: Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		sourceProviderType: varchar(7700)
+		lineageTag: ed7394d9-a607-4617-84cd-934d4b5744b1
+		sourceLineageTag: Comments
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4417666f-6744-4fbd-8c63-ed31036208be
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductReview = entity
+		mode: directLake
+		source
+			entityName: ProductReview
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

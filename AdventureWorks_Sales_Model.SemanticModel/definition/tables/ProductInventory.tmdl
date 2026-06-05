@@ -1,0 +1,88 @@
+table ProductInventory
+	lineageTag: 656b5110-cd1f-4b32-aecc-f53df8699f6e
+	sourceLineageTag: [Production].[ProductInventory]
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 00528f5a-b208-49a6-8fa3-8716efa9cd4f
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 098bdccc-9b66-4e8e-b948-41af1700bb19
+		sourceLineageTag: LocationID
+		summarizeBy: count
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shelf
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: fefbb135-c2c5-42f1-bdab-7c622e83e3af
+		sourceLineageTag: Shelf
+		summarizeBy: none
+		sourceColumn: Shelf
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bin
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 6ec96623-dad9-4bd5-aa22-6c374eaacf5e
+		sourceLineageTag: Bin
+		summarizeBy: sum
+		sourceColumn: Bin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 68fb66ed-2cf9-44af-8e5f-cb9544cd106b
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 433aca3a-045c-4ebe-816c-994fc6a35dec
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3d2aab46-3a02-4b67-a27e-96f926a1b87c
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductInventory = entity
+		mode: directLake
+		source
+			entityName: ProductInventory
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

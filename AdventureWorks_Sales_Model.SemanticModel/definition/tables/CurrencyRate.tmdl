@@ -1,0 +1,90 @@
+table CurrencyRate
+	lineageTag: f21467d0-9d04-4085-8ce4-936385764563
+	sourceLineageTag: [Sales].[CurrencyRate]
+
+	column CurrencyRateID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fb5d537b-9a5d-477d-b347-de84b5e3eb00
+		sourceLineageTag: CurrencyRateID
+		summarizeBy: count
+		sourceColumn: CurrencyRateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyRateDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d99249dd-9a0c-4bbb-9fe4-4450eb42078c
+		sourceLineageTag: CurrencyRateDate
+		summarizeBy: none
+		sourceColumn: CurrencyRateDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column FromCurrencyCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: e2a36079-3695-400d-b4bb-91853020f8e8
+		sourceLineageTag: FromCurrencyCode
+		summarizeBy: none
+		sourceColumn: FromCurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ToCurrencyCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: c76cc2cf-e05d-4d96-9efa-7a1749ff64db
+		sourceLineageTag: ToCurrencyCode
+		summarizeBy: none
+		sourceColumn: ToCurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AverageRate
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 0e36f58a-0bda-45b6-84fa-0ba8b70e121d
+		sourceLineageTag: AverageRate
+		summarizeBy: sum
+		sourceColumn: AverageRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EndOfDayRate
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: d4f10964-6649-40dc-abfb-e881fcef6d76
+		sourceLineageTag: EndOfDayRate
+		summarizeBy: sum
+		sourceColumn: EndOfDayRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2a69a82c-f87a-4e5e-b8e0-273a33dccf4c
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CurrencyRate = entity
+		mode: directLake
+		source
+			entityName: CurrencyRate
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

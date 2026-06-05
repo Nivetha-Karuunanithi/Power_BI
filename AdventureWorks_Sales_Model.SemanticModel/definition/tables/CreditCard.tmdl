@@ -1,0 +1,77 @@
+table CreditCard
+	lineageTag: 5c07d712-35e2-46ee-8c36-fd8759c081e6
+	sourceLineageTag: [Sales].[CreditCard]
+
+	column CreditCardID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ab47015a-0a98-4235-aedd-df76ed6cad05
+		sourceLineageTag: CreditCardID
+		summarizeBy: count
+		sourceColumn: CreditCardID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 578ac72c-6375-4fb3-bdcb-0c52e72a46d4
+		sourceLineageTag: CardType
+		summarizeBy: none
+		sourceColumn: CardType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardNumber
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: bb1dba1c-3ac0-45aa-897c-f96696d1b5c1
+		sourceLineageTag: CardNumber
+		summarizeBy: none
+		sourceColumn: CardNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExpMonth
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: ebbc17e9-d643-4b8d-912e-c19d6442ff01
+		sourceLineageTag: ExpMonth
+		summarizeBy: sum
+		sourceColumn: ExpMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExpYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: c4d5cc18-eb58-42b2-8407-e6150d9d3acd
+		sourceLineageTag: ExpYear
+		summarizeBy: sum
+		sourceColumn: ExpYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c0d4263b-0b97-40ef-86fa-0921e3334e2b
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CreditCard = entity
+		mode: directLake
+		source
+			entityName: CreditCard
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

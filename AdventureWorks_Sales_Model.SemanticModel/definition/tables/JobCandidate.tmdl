@@ -1,0 +1,56 @@
+table JobCandidate
+	lineageTag: 246727c1-51cf-498d-8c4f-0c0881562628
+	sourceLineageTag: [HumanResources].[JobCandidate]
+
+	column JobCandidateID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1be88a4f-61c0-492a-9daa-93091487ed92
+		sourceLineageTag: JobCandidateID
+		summarizeBy: count
+		sourceColumn: JobCandidateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 15791317-77f5-487d-8d58-f7c2bb0dae50
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Resume
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0b60fd37-382d-46a1-b7b7-4f2e2497c5ad
+		sourceLineageTag: Resume
+		summarizeBy: none
+		sourceColumn: Resume
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ffe06ecc-c987-45d1-ba4b-13a0d6e07674
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition JobCandidate = entity
+		mode: directLake
+		source
+			entityName: JobCandidate
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

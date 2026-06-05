@@ -1,0 +1,241 @@
+table vSalesPerson
+	lineageTag: cf50d15a-0704-4bb9-8578-4283168adfbe
+	sourceLineageTag: [Sales].[vSalesPerson]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f1204b96-1e4a-418c-847b-fdb3648ac648
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: a50d7be3-ebf6-4c5f-b9b8-05fedd28fed2
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: b59452ce-fbf1-4303-86a2-4ef82e1978d6
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5a567246-d10b-4eb8-a3ac-fb362652ccc1
+		sourceLineageTag: MiddleName
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: d7a616e8-9993-40e8-ae73-4f09fc010e89
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 3efb27c8-94c9-40c1-adbe-50abb2a93bbc
+		sourceLineageTag: Suffix
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f05d6ba4-a23f-4e7a-9320-2f17c072efe8
+		sourceLineageTag: JobTitle
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 92e33b1d-20a9-45d7-9626-6f73a17288d9
+		sourceLineageTag: PhoneNumber
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 53ad1627-7cf6-4167-8dff-d32a9748b18c
+		sourceLineageTag: PhoneNumberType
+		summarizeBy: none
+		sourceColumn: PhoneNumberType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: fd3329c8-93a2-4953-bcaa-cddd62d79e11
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d87a3508-0368-4892-8d56-c6b51f388c25
+		sourceLineageTag: EmailPromotion
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: be394300-14d0-4c52-902c-95de7ec7b8dd
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: c25287ce-0740-4f23-ad54-fa7208958170
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 058dc3ad-a5ff-4766-a628-9349de4a14f7
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c7e7d395-614c-47a7-86fe-5b23d49dadf1
+		sourceLineageTag: StateProvinceName
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 5dd5f4d3-264f-43c3-b575-50d071ed7993
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: dbcf33b5-9571-4ad7-b200-536c72f77af4
+		sourceLineageTag: CountryRegionName
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: eac0af7b-0d72-4226-9a2e-087805926f16
+		sourceLineageTag: TerritoryName
+		summarizeBy: none
+		sourceColumn: TerritoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryGroup
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 1bf10768-6fe1-4f10-8401-f70f274cc02e
+		sourceLineageTag: TerritoryGroup
+		summarizeBy: none
+		sourceColumn: TerritoryGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuota
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 3ba3ffe7-c5b0-41a1-99d3-d317841c2d57
+		sourceLineageTag: SalesQuota
+		summarizeBy: sum
+		sourceColumn: SalesQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesYTD
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 3b861fe5-4fb2-4c21-844a-3b3da333ab63
+		sourceLineageTag: SalesYTD
+		summarizeBy: sum
+		sourceColumn: SalesYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesLastYear
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 3d5e2d84-e6bc-4d59-aeb4-c000f0af2c32
+		sourceLineageTag: SalesLastYear
+		summarizeBy: sum
+		sourceColumn: SalesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vSalesPerson = entity
+		mode: directLake
+		source
+			entityName: vSalesPerson
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

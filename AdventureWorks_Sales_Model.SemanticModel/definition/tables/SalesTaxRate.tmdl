@@ -1,0 +1,87 @@
+table SalesTaxRate
+	lineageTag: 8a17c619-79da-4c7f-a855-9b050013ff2b
+	sourceLineageTag: [Sales].[SalesTaxRate]
+
+	column SalesTaxRateID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c1376579-8e05-43f7-9cd7-34d097cbf554
+		sourceLineageTag: SalesTaxRateID
+		summarizeBy: count
+		sourceColumn: SalesTaxRateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 108d68da-792e-4508-9f73-14f5b794a735
+		sourceLineageTag: StateProvinceID
+		summarizeBy: count
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxType
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 03e91dca-a978-41c7-abc5-4d1e257c753b
+		sourceLineageTag: TaxType
+		summarizeBy: sum
+		sourceColumn: TaxType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxRate
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 1f27f7b8-e2ea-416f-a3c4-bb782923056f
+		sourceLineageTag: TaxRate
+		summarizeBy: none
+		sourceColumn: TaxRate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 80e34154-dd9f-4ba9-934b-78c78b12090f
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 9f9c2c75-768c-4e53-a8c8-de9b27dda820
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9c3a90bd-1f58-48e1-873e-04305f830205
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesTaxRate = entity
+		mode: directLake
+		source
+			entityName: SalesTaxRate
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

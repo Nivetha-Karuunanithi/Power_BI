@@ -1,0 +1,135 @@
+table vVendorWithContacts
+	lineageTag: fd6c21ae-eaf0-426e-98b9-ada315192ac5
+	sourceLineageTag: [Purchasing].[vVendorWithContacts]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5cf270b9-cb08-44c6-b12e-c93b948e287b
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 3e858a8c-9b5e-4684-a21b-9e9624d1c851
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f531b432-ce2a-482b-a562-e5f6f8810897
+		sourceLineageTag: ContactType
+		summarizeBy: none
+		sourceColumn: ContactType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: 69affda8-3d17-4af3-a2e6-882de882513e
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: d4ebdde4-f521-4f26-9b52-48da245bfe69
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c3e31863-42c9-46f5-8b10-b25844ab2b2c
+		sourceLineageTag: MiddleName
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: e8e08687-15b5-48a7-80d9-3276da81f713
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 4fbf9f65-d157-4c07-a205-9d6a2b0afd24
+		sourceLineageTag: Suffix
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 8bd33c45-5c00-4e3f-9d4c-9b9c281850f2
+		sourceLineageTag: PhoneNumber
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 2f24f28c-597d-4565-a559-b4c606aa0f4e
+		sourceLineageTag: PhoneNumberType
+		summarizeBy: none
+		sourceColumn: PhoneNumberType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bf68e1c4-045a-4c4a-a4c9-81d424267e9d
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 769f6949-615d-4b79-b85e-1cde8ab31b1f
+		sourceLineageTag: EmailPromotion
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vVendorWithContacts = entity
+		mode: directLake
+		source
+			entityName: vVendorWithContacts
+			schemaName: Purchasing
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

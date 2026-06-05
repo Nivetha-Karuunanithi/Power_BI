@@ -1,0 +1,95 @@
+table DatabaseLog
+	lineageTag: ff59114d-6ccd-4c61-9500-1bfc23b05318
+	sourceLineageTag: [dbo].[DatabaseLog]
+
+	column DatabaseLogID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: da171b1a-87df-4069-b978-725ea0d4b2fd
+		sourceLineageTag: DatabaseLogID
+		summarizeBy: count
+		sourceColumn: DatabaseLogID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostTime
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 826f518d-d057-4de9-bfdc-59ac85e1758a
+		sourceLineageTag: PostTime
+		summarizeBy: none
+		sourceColumn: PostTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatabaseUser
+		dataType: string
+		sourceProviderType: varchar(256)
+		lineageTag: deac9f24-e8cb-4244-b4b5-5177d01f5f7c
+		sourceLineageTag: DatabaseUser
+		summarizeBy: none
+		sourceColumn: DatabaseUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column Event
+		dataType: string
+		sourceProviderType: varchar(256)
+		lineageTag: 0d350ab6-5571-4d87-b28b-ad339bab0077
+		sourceLineageTag: Event
+		summarizeBy: none
+		sourceColumn: Event
+
+		annotation SummarizationSetBy = Automatic
+
+	column Schema
+		dataType: string
+		sourceProviderType: varchar(256)
+		lineageTag: f432ca83-afb7-488f-bf67-c4c4a294ce66
+		sourceLineageTag: Schema
+		summarizeBy: none
+		sourceColumn: Schema
+
+		annotation SummarizationSetBy = Automatic
+
+	column Object
+		dataType: string
+		sourceProviderType: varchar(256)
+		lineageTag: df8e80eb-1775-4067-bfb9-812ec9f273dd
+		sourceLineageTag: Object
+		summarizeBy: none
+		sourceColumn: Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column TSQL
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c8d2a835-3a1a-4053-a6e8-bfc09782eb98
+		sourceLineageTag: TSQL
+		summarizeBy: none
+		sourceColumn: TSQL
+
+		annotation SummarizationSetBy = Automatic
+
+	column XmlEvent
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 75a3bb26-8c64-41b4-af4c-f73fe33e159a
+		sourceLineageTag: XmlEvent
+		summarizeBy: none
+		sourceColumn: XmlEvent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DatabaseLog = entity
+		mode: directLake
+		source
+			entityName: DatabaseLog
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

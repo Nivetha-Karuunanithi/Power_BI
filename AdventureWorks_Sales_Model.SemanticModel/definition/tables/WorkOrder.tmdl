@@ -1,0 +1,123 @@
+table WorkOrder
+	lineageTag: b6809734-b367-45c7-b90e-fed46c067e76
+	sourceLineageTag: [Production].[WorkOrder]
+
+	column WorkOrderID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0b983e60-ffdd-465a-af76-bc36eba9819e
+		sourceLineageTag: WorkOrderID
+		summarizeBy: count
+		sourceColumn: WorkOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 404bb908-e888-414c-8614-818a469db2a9
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cd963e9c-5d10-4148-894d-ab7ce90961d4
+		sourceLineageTag: OrderQty
+		summarizeBy: sum
+		sourceColumn: OrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockedQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8170cc24-1d77-41a2-8f23-76766db616cd
+		sourceLineageTag: StockedQty
+		summarizeBy: sum
+		sourceColumn: StockedQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScrappedQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 8e6466f5-878c-41ad-932b-51f6a9558035
+		sourceLineageTag: ScrappedQty
+		summarizeBy: sum
+		sourceColumn: ScrappedQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 993f1bad-490d-4d9f-b125-51d7e39815c4
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 73327ba3-6c7e-4669-b256-60010a891acd
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4d0c8488-680e-444c-b867-2c3aaf36b98f
+		sourceLineageTag: DueDate
+		summarizeBy: none
+		sourceColumn: DueDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScrapReasonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 7357425e-b16c-43f3-9d97-568f60eaad85
+		sourceLineageTag: ScrapReasonID
+		summarizeBy: count
+		sourceColumn: ScrapReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 75e8cf7d-090e-4d17-a907-ea9773593d48
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WorkOrder = entity
+		mode: directLake
+		source
+			entityName: WorkOrder
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,55 @@
+table Department
+	lineageTag: 75e6fa1e-c75d-4867-9703-1cadb81bf2d0
+	sourceLineageTag: [HumanResources].[Department]
+
+	column DepartmentID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: b6b4cbbf-87d7-4a58-8849-713a90baed84
+		sourceLineageTag: DepartmentID
+		summarizeBy: count
+		sourceColumn: DepartmentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 01fadce2-124d-4ea3-b5d6-b0526c7ec075
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 40d43333-ba41-4411-bad8-7c89a5fa9c19
+		sourceLineageTag: GroupName
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a8e14250-f31f-4b1a-a2c9-15feaad50673
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Department = entity
+		mode: directLake
+		source
+			entityName: Department
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

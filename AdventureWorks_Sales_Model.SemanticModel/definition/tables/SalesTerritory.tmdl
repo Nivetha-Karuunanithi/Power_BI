@@ -1,0 +1,123 @@
+table SalesTerritory
+	lineageTag: 04414d09-97f8-4b9a-a3dd-3632dd8ccd25
+	sourceLineageTag: [Sales].[SalesTerritory]
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9e9eb996-8120-4fce-b0bd-c95f7af16422
+		sourceLineageTag: TerritoryID
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 23469686-7b65-4ddf-9592-947e358abfd8
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: aff60e21-571b-4938-83fe-75d5a41946d0
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c2e3822c-f478-4543-ae7d-f5558cc4489b
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesYTD
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 2b681a5b-48eb-4f57-b670-5ae5174707a8
+		sourceLineageTag: SalesYTD
+		summarizeBy: sum
+		sourceColumn: SalesYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesLastYear
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 962a242f-c03c-4211-a7a3-80405b9e5c17
+		sourceLineageTag: SalesLastYear
+		summarizeBy: sum
+		sourceColumn: SalesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CostYTD
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 4718704c-b91c-4bdd-8086-2936f95f6506
+		sourceLineageTag: CostYTD
+		summarizeBy: sum
+		sourceColumn: CostYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CostLastYear
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: c41a4ca4-fc33-47cf-820a-e8dcd79060f6
+		sourceLineageTag: CostLastYear
+		summarizeBy: sum
+		sourceColumn: CostLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 304912bf-de1a-4949-85d2-0156145cc9e8
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 41a9c682-6884-466e-b86b-916a96ffa2b1
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesTerritory = entity
+		mode: directLake
+		source
+			entityName: SalesTerritory
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,106 @@
+table Address
+	lineageTag: 8b3cc19b-68da-4738-bd66-44c221443ea3
+	sourceLineageTag: [Person].[Address]
+
+	column AddressID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c7ddb30a-6256-40bc-aeaf-1d9fefb76952
+		sourceLineageTag: AddressID
+		summarizeBy: count
+		sourceColumn: AddressID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: 430d6092-8094-4db7-869d-ed60e2bea0b0
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: 4c3d2b63-a3d5-4275-be2e-ecec63f6f27a
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 7a6b845c-761f-463a-b2b4-28d3abdf114d
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2ae7b187-23c5-41c6-ba3f-2236666a8dbf
+		sourceLineageTag: StateProvinceID
+		summarizeBy: count
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 98510ddb-7d22-4cef-88e4-2acadeedbb18
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpatialLocation
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: ff795291-b105-46c8-b0dd-dac785eb6ae5
+		sourceLineageTag: SpatialLocation
+		summarizeBy: none
+		sourceColumn: SpatialLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 438dbd44-9ca9-416d-b274-f75fb8e1717b
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 335638b0-4d72-40d0-81ab-f4af6e55a833
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Address = entity
+		mode: directLake
+		source
+			entityName: Address
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,45 @@
+table ContactType
+	lineageTag: ecf97248-3500-4302-b13e-2868f3162c0e
+	sourceLineageTag: [Person].[ContactType]
+
+	column ContactTypeID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0a145920-679c-4ddc-84ae-edfe57a1b89f
+		sourceLineageTag: ContactTypeID
+		summarizeBy: count
+		sourceColumn: ContactTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f696a871-4aa8-4834-9f73-06e6a9d61011
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 409ab66d-f8c2-4825-bcde-da9108b70704
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ContactType = entity
+		mode: directLake
+		source
+			entityName: ContactType
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

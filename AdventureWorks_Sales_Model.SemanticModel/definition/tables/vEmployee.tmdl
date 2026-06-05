@@ -1,0 +1,195 @@
+table vEmployee
+	lineageTag: b44a9f46-6967-4d25-8708-5d86d27b3479
+	sourceLineageTag: [HumanResources].[vEmployee]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0dfe8ce3-60e7-4106-a1d5-1067c4802ba6
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: 4ecb8b00-5a3a-4430-a709-e80239334507
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 6b84aec3-98a8-4703-af9e-db1c533bc8a0
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c62d8b32-cc08-4bb2-84dc-a16961524a0b
+		sourceLineageTag: MiddleName
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a7947978-2a13-4f5e-a728-a85589346532
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 9f87da88-ca1b-4e93-9421-dac01c73b793
+		sourceLineageTag: Suffix
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a23b99fc-dbc1-4852-a081-c293c3a30f2a
+		sourceLineageTag: JobTitle
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 2e0d6820-a893-4483-afd5-b19231968820
+		sourceLineageTag: PhoneNumber
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f4791c6d-f1d6-4465-bf5b-4f5edeff8f04
+		sourceLineageTag: PhoneNumberType
+		summarizeBy: none
+		sourceColumn: PhoneNumberType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 61948073-676d-4a15-a94c-ad551172c8f4
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 89e9b51f-62f4-4899-9cff-947350da8829
+		sourceLineageTag: EmailPromotion
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: 8ef8bbc2-ac65-42d5-b497-7be6a6eb1160
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: f7ad1f90-bcb4-4852-954a-85f98d61266a
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 9c074dca-4577-48ef-b0e4-57a5683bc926
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 2b276fdb-8671-47e9-be3a-47e5f6dd13c4
+		sourceLineageTag: StateProvinceName
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: d996fe1b-41f1-4ce4-a17e-45263dd9c751
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 78103f10-7f62-4952-99a9-9b941b307932
+		sourceLineageTag: CountryRegionName
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalContactInfo
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 649ffcb6-0ca1-4cfa-b092-c21b816ce3ff
+		sourceLineageTag: AdditionalContactInfo
+		summarizeBy: none
+		sourceColumn: AdditionalContactInfo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vEmployee = entity
+		mode: directLake
+		source
+			entityName: vEmployee
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,44 @@
+table CountryRegionCurrency
+	lineageTag: 9a12c0d7-11db-445d-9066-9c4921650515
+	sourceLineageTag: [Sales].[CountryRegionCurrency]
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 8356d52f-14a2-4b72-8431-4dea4d0257f9
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: f8b6ad11-3678-49cd-a53f-cbd400678fa8
+		sourceLineageTag: CurrencyCode
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 753b01b8-8712-4d45-bb10-4a1fd794a66b
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CountryRegionCurrency = entity
+		mode: directLake
+		source
+			entityName: CountryRegionCurrency
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

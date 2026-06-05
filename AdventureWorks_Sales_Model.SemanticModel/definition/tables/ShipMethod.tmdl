@@ -1,0 +1,79 @@
+table ShipMethod
+	lineageTag: 5920b558-e997-43a2-a25a-918a27407406
+	sourceLineageTag: [Purchasing].[ShipMethod]
+
+	column ShipMethodID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7be722b9-1b76-486a-9d6a-2236a3a7cc11
+		sourceLineageTag: ShipMethodID
+		summarizeBy: count
+		sourceColumn: ShipMethodID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: aed213bc-38d8-4b4d-bbc8-a1e31703513f
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipBase
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 08393f70-a212-4a9c-b155-1d89b99fa4bd
+		sourceLineageTag: ShipBase
+		summarizeBy: sum
+		sourceColumn: ShipBase
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ShipRate
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 1b7cca4b-58de-4f3c-8d26-f4022e928f69
+		sourceLineageTag: ShipRate
+		summarizeBy: sum
+		sourceColumn: ShipRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: e51af047-1558-43f0-ae2c-7fc62b10dc6e
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ce044e28-276e-4fd5-bbf9-e61b15913ea4
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShipMethod = entity
+		mode: directLake
+		source
+			entityName: ShipMethod
+			schemaName: Purchasing
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

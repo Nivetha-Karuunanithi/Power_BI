@@ -1,0 +1,44 @@
+table CountryRegion
+	lineageTag: fee4b0b5-6333-4ef7-96b7-2d1e38655d01
+	sourceLineageTag: [Person].[CountryRegion]
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 8ce9e324-c06c-4c82-b094-b463b65bb051
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 32f24bde-9d8c-49a9-b77a-ae3e2b74dd35
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 86bb480e-3445-47dc-8563-838bfe81af63
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CountryRegion = entity
+		mode: directLake
+		source
+			entityName: CountryRegion
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

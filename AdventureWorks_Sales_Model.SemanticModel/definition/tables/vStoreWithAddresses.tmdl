@@ -1,0 +1,104 @@
+table vStoreWithAddresses
+	lineageTag: ef87facf-f184-4826-85ca-1085518fdd34
+	sourceLineageTag: [Sales].[vStoreWithAddresses]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 932bcd6d-6a74-4d5c-af51-8769e19e3fb9
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 109ecd84-cad2-4091-850a-e422ea3f6a86
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f4cd5c7f-df8f-41d7-8103-55cea79f96e4
+		sourceLineageTag: AddressType
+		summarizeBy: none
+		sourceColumn: AddressType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: c6daa1ea-3313-4497-b026-16a526dfd9d4
+		sourceLineageTag: AddressLine1
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		sourceProviderType: varchar(120)
+		lineageTag: 06acc2ed-573c-4e9d-9dd4-825bf9a35773
+		sourceLineageTag: AddressLine2
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 97d56929-385f-406d-8419-6ab3eaf12356
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f634c725-9acb-47c3-a0d6-a94ee67acd79
+		sourceLineageTag: StateProvinceName
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 71ef832a-3b80-45c9-9e1c-30c3e415d0c3
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 30eff06b-42f8-41b3-8bc9-1f54345a7f92
+		sourceLineageTag: CountryRegionName
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vStoreWithAddresses = entity
+		mode: directLake
+		source
+			entityName: vStoreWithAddresses
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

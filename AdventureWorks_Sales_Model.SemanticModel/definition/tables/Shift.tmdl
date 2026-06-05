@@ -1,0 +1,65 @@
+table Shift
+	lineageTag: 9dcef549-884c-4487-a389-8697f8e8cdaf
+	sourceLineageTag: [HumanResources].[Shift]
+
+	column ShiftID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 956b66be-4c65-452b-ba25-4f8e83f71e30
+		sourceLineageTag: ShiftID
+		summarizeBy: count
+		sourceColumn: ShiftID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 6c1d74f7-16a3-46c0-8810-1e04db5f1fd9
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartTime
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 4f60ef32-0ec3-44a8-bd51-9b5c07e583c1
+		sourceLineageTag: StartTime
+		summarizeBy: none
+		sourceColumn: StartTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndTime
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 8cbeb7e9-bb99-4933-b78a-97ddd73955fd
+		sourceLineageTag: EndTime
+		summarizeBy: none
+		sourceColumn: EndTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 177788db-bb48-4d88-b260-2ba6e16627bb
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Shift = entity
+		mode: directLake
+		source
+			entityName: Shift
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,56 @@
+table SpecialOfferProduct
+	lineageTag: 50ae6fa1-aa0a-4180-b79b-12560e524368
+	sourceLineageTag: [Sales].[SpecialOfferProduct]
+
+	column SpecialOfferID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 94548edc-71dd-4b88-a7be-6cb1a5bfd42a
+		sourceLineageTag: SpecialOfferID
+		summarizeBy: count
+		sourceColumn: SpecialOfferID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5b9314cd-ca0a-4d3a-8812-ef169739ae4e
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 5098855f-0ccf-4dfc-9bdc-4c93342ca4d3
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5df775ea-69e4-42a4-8367-0772cceabc45
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SpecialOfferProduct = entity
+		mode: directLake
+		source
+			entityName: SpecialOfferProduct
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

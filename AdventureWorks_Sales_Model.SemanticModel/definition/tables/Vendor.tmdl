@@ -1,0 +1,96 @@
+table Vendor
+	lineageTag: 056b1eb3-3b34-4b51-b700-619c9b4f4dd0
+	sourceLineageTag: [Purchasing].[Vendor]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 45bcf1c2-d959-4155-ae06-9fe3a90294a3
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountNumber
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 39847872-8a21-4cf6-8bca-0b963e403b58
+		sourceLineageTag: AccountNumber
+		summarizeBy: none
+		sourceColumn: AccountNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 882f14a5-59a3-4332-9bdb-6d91f52eb2be
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditRating
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: a591dbc5-3e5a-4305-bbfd-a8adde5a96f7
+		sourceLineageTag: CreditRating
+		summarizeBy: sum
+		sourceColumn: CreditRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreferredVendorStatus
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 739cdfe1-b471-441b-ab2f-29dbe42b124f
+		sourceLineageTag: PreferredVendorStatus
+		summarizeBy: none
+		sourceColumn: PreferredVendorStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlag
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 6a785b70-5167-47cb-aa05-dd88b93c988b
+		sourceLineageTag: ActiveFlag
+		summarizeBy: none
+		sourceColumn: ActiveFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchasingWebServiceURL
+		dataType: string
+		sourceProviderType: varchar(2048)
+		lineageTag: f2dcb850-a6b1-40a8-9de6-3fc9dd33f944
+		sourceLineageTag: PurchasingWebServiceURL
+		summarizeBy: none
+		sourceColumn: PurchasingWebServiceURL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: db5c17ee-b8c8-4b82-a3eb-01eef1474487
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Vendor = entity
+		mode: directLake
+		source
+			entityName: Vendor
+			schemaName: Purchasing
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,90 @@
+table vSalesPersonSalesByFiscalYears
+	lineageTag: 4a2817d9-462a-4e72-991d-e30d101531fb
+	sourceLineageTag: [Sales].[vSalesPersonSalesByFiscalYears]
+
+	column SalesPersonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c21145c7-6ec6-4427-9843-3644c2267334
+		sourceLineageTag: SalesPersonID
+		summarizeBy: count
+		sourceColumn: SalesPersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		sourceProviderType: varchar(302)
+		lineageTag: 137d917a-df10-4e52-8792-e106218db816
+		sourceLineageTag: FullName
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: ff441786-d695-46a8-80b1-6b09dad77f68
+		sourceLineageTag: JobTitle
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritory
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bef32daa-54b0-4571-a34c-8a7e2739bbf2
+		sourceLineageTag: SalesTerritory
+		summarizeBy: none
+		sourceColumn: SalesTerritory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2002
+		dataType: double
+		sourceProviderType: decimal(38, 4)
+		lineageTag: 916d4fd9-cabf-4946-b495-c0d4059253a3
+		sourceLineageTag: 2002
+		summarizeBy: sum
+		sourceColumn: 2002
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 2003
+		dataType: double
+		sourceProviderType: decimal(38, 4)
+		lineageTag: 512b13c3-afba-495a-b7de-d050da92ba0a
+		sourceLineageTag: 2003
+		summarizeBy: sum
+		sourceColumn: 2003
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 2004
+		dataType: double
+		sourceProviderType: decimal(38, 4)
+		lineageTag: aa2e182d-3b5b-437a-bdde-34cdb724f196
+		sourceLineageTag: 2004
+		summarizeBy: sum
+		sourceColumn: 2004
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vSalesPersonSalesByFiscalYears = entity
+		mode: directLake
+		source
+			entityName: vSalesPersonSalesByFiscalYears
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

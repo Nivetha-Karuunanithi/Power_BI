@@ -1,0 +1,56 @@
+table PersonPhone
+	lineageTag: 542d9bc4-4cac-4986-882d-1dbc80c8c38e
+	sourceLineageTag: [Person].[PersonPhone]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9e18a3f2-78f8-45dc-8851-3ef3e837732b
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 4353af96-26ef-436e-b4ae-556314224501
+		sourceLineageTag: PhoneNumber
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberTypeID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d9f5fa15-eb66-4164-b2ba-0d2dd55f943d
+		sourceLineageTag: PhoneNumberTypeID
+		summarizeBy: count
+		sourceColumn: PhoneNumberTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 19b9a20e-d22f-419f-b7ed-606b99546254
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PersonPhone = entity
+		mode: directLake
+		source
+			entityName: PersonPhone
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,85 @@
+table vStateProvinceCountryRegion
+	lineageTag: 9b969767-2bb8-40d2-90f3-27959bda57e5
+	sourceLineageTag: [Person].[vStateProvinceCountryRegion]
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 851d8523-07ad-4055-b058-10e874188d1b
+		sourceLineageTag: StateProvinceID
+		summarizeBy: count
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: d8818e3d-5ed3-41f7-88a4-bc8258bda938
+		sourceLineageTag: StateProvinceCode
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOnlyStateProvinceFlag
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: bb0fe12f-8beb-4510-be8c-f5ff640fef1a
+		sourceLineageTag: IsOnlyStateProvinceFlag
+		summarizeBy: none
+		sourceColumn: IsOnlyStateProvinceFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 56c250c6-8bb6-4ef5-9d40-8eb86be0d2e4
+		sourceLineageTag: StateProvinceName
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4a798418-4a0d-45d9-9bcc-fc1f1940f80a
+		sourceLineageTag: TerritoryID
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: b5896150-6751-4980-9e81-c85ec5a02e7e
+		sourceLineageTag: CountryRegionCode
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 6fa93919-6834-4385-a03c-cf485f3dedd8
+		sourceLineageTag: CountryRegionName
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vStateProvinceCountryRegion = entity
+		mode: directLake
+		source
+			entityName: vStateProvinceCountryRegion
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

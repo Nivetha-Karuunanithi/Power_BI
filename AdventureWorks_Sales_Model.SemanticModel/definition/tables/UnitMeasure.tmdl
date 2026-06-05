@@ -1,0 +1,44 @@
+table UnitMeasure
+	lineageTag: 08037c44-a590-4377-9c66-9a46319df196
+	sourceLineageTag: [Production].[UnitMeasure]
+
+	column UnitMeasureCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 54f34224-1504-4888-8088-fc24cd838f62
+		sourceLineageTag: UnitMeasureCode
+		summarizeBy: none
+		sourceColumn: UnitMeasureCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bb0930cf-13db-4030-95d0-dd690c209f61
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 376a2660-1f56-4485-9fac-70fea09d3261
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition UnitMeasure = entity
+		mode: directLake
+		source
+			entityName: UnitMeasure
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

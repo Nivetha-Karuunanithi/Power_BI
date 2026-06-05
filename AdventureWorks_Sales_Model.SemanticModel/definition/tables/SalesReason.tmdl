@@ -1,0 +1,55 @@
+table SalesReason
+	lineageTag: 61b9163a-dd44-4b29-8ad4-12ee1e7beeb2
+	sourceLineageTag: [Sales].[SalesReason]
+
+	column SalesReasonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6a3d319e-0cd1-4242-8d98-d2dd8cfd3c95
+		sourceLineageTag: SalesReasonID
+		summarizeBy: count
+		sourceColumn: SalesReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 54eeca74-3b1b-4b4b-8c61-e59c728bb04b
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReasonType
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 646e5503-9d1e-4e6a-8be8-3b519b27e8c2
+		sourceLineageTag: ReasonType
+		summarizeBy: none
+		sourceColumn: ReasonType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d62d7c22-3a7a-4f9e-b821-e8d87af363f9
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesReason = entity
+		mode: directLake
+		source
+			entityName: SalesReason
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,98 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+ref table vEmployee
+ref table vEmployeeDepartment
+ref table vEmployeeDepartmentHistory
+ref table vIndividualCustomer
+ref table vProductAndDescription
+ref table vSalesPerson
+ref table vSalesPersonSalesByFiscalYears
+ref table vStoreWithContacts
+ref table vStoreWithAddresses
+ref table vVendorWithContacts
+ref table vVendorWithAddresses
+ref table vStateProvinceCountryRegion
+ref table BusinessEntity
+ref table TransactionHistoryArchive
+ref table ProductSubcategory
+ref table BusinessEntityAddress
+ref table ProductVendor
+ref table BusinessEntityContact
+ref table UnitMeasure
+ref table Vendor
+ref table ContactType
+ref table CountryRegionCurrency
+ref table CountryRegion
+ref table WorkOrder
+ref table PurchaseOrderDetail
+ref table Employee_Backup
+ref table CreditCard
+ref table Employee
+ref table Culture
+ref table WorkOrderRouting
+ref table Currency
+ref table PurchaseOrderHeader
+ref table CurrencyRate
+ref table Customer
+ref table Department
+ref table Document
+ref table SalesOrderDetail
+ref table EmailAddress
+ref table SalesOrderHeader
+ref table EmployeeDepartmentHistory
+ref table EmployeePayHistory
+ref table SalesOrderHeaderSalesReason
+ref table SalesPerson
+ref table Illustration
+ref table JobCandidate
+ref table Location
+ref table Password
+ref table SalesPersonQuotaHistory
+ref table Person
+ref table SalesReason
+ref table SalesTaxRate
+ref table PersonCreditCard
+ref table PersonPhone
+ref table SalesTerritory
+ref table PhoneNumberType
+ref table Product
+ref table SalesTerritoryHistory
+ref table ScrapReason
+ref table Shift
+ref table ProductCategory
+ref table ShipMethod
+ref table ProductCostHistory
+ref table ProductDescription
+ref table ShoppingCartItem
+ref table ProductDocument
+ref table DatabaseLog
+ref table ProductInventory
+ref table SpecialOffer
+ref table ErrorLog
+ref table ProductListPriceHistory
+ref table Address
+ref table SpecialOfferProduct
+ref table ProductModel
+ref table AddressType
+ref table StateProvince
+ref table ProductModelIllustration
+ref table AWBuildVersion
+ref table ProductModelProductDescriptionCulture
+ref table BillOfMaterials
+ref table Store
+ref table ProductPhoto
+ref table ProductProductPhoto
+ref table TransactionHistory
+ref table ProductReview
+

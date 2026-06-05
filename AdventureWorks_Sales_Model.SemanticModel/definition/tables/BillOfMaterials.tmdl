@@ -1,0 +1,113 @@
+table BillOfMaterials
+	lineageTag: 5d8efa9f-1708-425f-9fcf-1fef6254c07c
+	sourceLineageTag: [Production].[BillOfMaterials]
+
+	column BillOfMaterialsID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e615f1cb-1530-42f2-a616-0cda9f143da6
+		sourceLineageTag: BillOfMaterialsID
+		summarizeBy: count
+		sourceColumn: BillOfMaterialsID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductAssemblyID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4d50d4eb-7944-432a-bceb-3f8e0dc126e1
+		sourceLineageTag: ProductAssemblyID
+		summarizeBy: count
+		sourceColumn: ProductAssemblyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComponentID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 70817f7b-27c1-4cab-8678-b882a9187db5
+		sourceLineageTag: ComponentID
+		summarizeBy: count
+		sourceColumn: ComponentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2b0f096f-8243-46ba-9f19-906d2dc2f8f1
+		sourceLineageTag: StartDate
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 03468f0c-dfcb-4dd5-acfd-29fd7870aa11
+		sourceLineageTag: EndDate
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitMeasureCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 89179616-959b-4036-a2c5-16c548685670
+		sourceLineageTag: UnitMeasureCode
+		summarizeBy: none
+		sourceColumn: UnitMeasureCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOMLevel
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: cf73ae29-d5a1-43ae-82b7-7a30554107fd
+		sourceLineageTag: BOMLevel
+		summarizeBy: sum
+		sourceColumn: BOMLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column PerAssemblyQty
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(18, 4)
+		lineageTag: 90108ae3-3831-4c7a-a6a7-0756bbf101d7
+		sourceLineageTag: PerAssemblyQty
+		summarizeBy: sum
+		sourceColumn: PerAssemblyQty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2d4b1e4a-5a7c-4c71-856b-431526db1ed5
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BillOfMaterials = entity
+		mode: directLake
+		source
+			entityName: BillOfMaterials
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

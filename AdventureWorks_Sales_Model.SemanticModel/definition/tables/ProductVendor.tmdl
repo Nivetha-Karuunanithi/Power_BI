@@ -1,0 +1,135 @@
+table ProductVendor
+	lineageTag: 000ef09d-3741-491e-be4e-bfa43c0eb5e0
+	sourceLineageTag: [Purchasing].[ProductVendor]
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e0bd87c5-66e9-43c4-9a4e-e991dbe78419
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b0bf147e-5518-47c6-a35c-7127a95d1ade
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AverageLeadTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 953150d5-3034-462c-8675-01375b51d4a1
+		sourceLineageTag: AverageLeadTime
+		summarizeBy: sum
+		sourceColumn: AverageLeadTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardPrice
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 99137727-c1d1-41b3-8fee-17817453c917
+		sourceLineageTag: StandardPrice
+		summarizeBy: sum
+		sourceColumn: StandardPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LastReceiptCost
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: a94b5cd8-d01e-4076-9368-ebb0754ff139
+		sourceLineageTag: LastReceiptCost
+		summarizeBy: sum
+		sourceColumn: LastReceiptCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LastReceiptDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1ae68de5-aed3-46d4-ba86-a0d69d8777e1
+		sourceLineageTag: LastReceiptDate
+		summarizeBy: none
+		sourceColumn: LastReceiptDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinOrderQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fd2f5294-9ea0-45f6-b1a6-b8780576e6b4
+		sourceLineageTag: MinOrderQty
+		summarizeBy: sum
+		sourceColumn: MinOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxOrderQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5bcbe64f-86b6-4b85-9336-f9088ea87fec
+		sourceLineageTag: MaxOrderQty
+		summarizeBy: sum
+		sourceColumn: MaxOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnOrderQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fd54dab1-ea6e-4d1b-85d9-1430e8f957e5
+		sourceLineageTag: OnOrderQty
+		summarizeBy: sum
+		sourceColumn: OnOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitMeasureCode
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 721c88f5-4117-49ff-8ad2-b3f03c437180
+		sourceLineageTag: UnitMeasureCode
+		summarizeBy: none
+		sourceColumn: UnitMeasureCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2b30f81e-a93f-4d7b-81cd-96fbe4fec753
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductVendor = entity
+		mode: directLake
+		source
+			entityName: ProductVendor
+			schemaName: Purchasing
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

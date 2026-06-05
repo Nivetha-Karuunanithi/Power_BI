@@ -1,0 +1,44 @@
+table Culture
+	lineageTag: 5108794c-582a-4649-bbd1-984d3cb865e4
+	sourceLineageTag: [Production].[Culture]
+
+	column CultureID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 44f5cb39-fb60-419a-bf31-369b7ac07d98
+		sourceLineageTag: CultureID
+		summarizeBy: none
+		sourceColumn: CultureID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5c1af02a-8bd5-4371-bb4f-83cc65f289e0
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ba8af217-5de6-45d0-960c-747cc13782bd
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Culture = entity
+		mode: directLake
+		source
+			entityName: Culture
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

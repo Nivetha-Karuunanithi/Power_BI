@@ -1,0 +1,64 @@
+table vProductAndDescription
+	lineageTag: ec36e583-f022-46e8-9598-fd19144964a5
+	sourceLineageTag: [Production].[vProductAndDescription]
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5b4f8726-82a6-4ccf-a763-919b2fd75dd2
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 861f99a5-299d-4aad-acce-063be7f5264f
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductModel
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: efdd147f-74d0-49bb-8c06-5edf73fe36d0
+		sourceLineageTag: ProductModel
+		summarizeBy: none
+		sourceColumn: ProductModel
+
+		annotation SummarizationSetBy = Automatic
+
+	column CultureID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 247d8d8d-6535-4436-9fd7-5bc8dced0b14
+		sourceLineageTag: CultureID
+		summarizeBy: none
+		sourceColumn: CultureID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(800)
+		lineageTag: ee2e1580-2dc7-48a0-8ac6-cc95b3102a77
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vProductAndDescription = entity
+		mode: directLake
+		source
+			entityName: vProductAndDescription
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

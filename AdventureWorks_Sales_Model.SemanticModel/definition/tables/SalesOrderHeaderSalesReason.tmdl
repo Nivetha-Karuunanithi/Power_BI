@@ -1,0 +1,46 @@
+table SalesOrderHeaderSalesReason
+	lineageTag: 5a2d9b74-3aa2-4b6e-a435-022c6e9886b8
+	sourceLineageTag: [Sales].[SalesOrderHeaderSalesReason]
+
+	column SalesOrderID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b92c74d7-1cd4-4ade-809a-547ed28beea3
+		sourceLineageTag: SalesOrderID
+		summarizeBy: count
+		sourceColumn: SalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesReasonID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b86aa0ba-3666-4aa3-9bc8-84eb28a3e0ba
+		sourceLineageTag: SalesReasonID
+		summarizeBy: count
+		sourceColumn: SalesReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c468ae0d-3b41-4803-bce8-c44dca5168cb
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesOrderHeaderSalesReason = entity
+		mode: directLake
+		source
+			entityName: SalesOrderHeaderSalesReason
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

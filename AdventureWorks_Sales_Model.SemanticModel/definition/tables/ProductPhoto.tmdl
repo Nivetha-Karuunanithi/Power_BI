@@ -1,0 +1,55 @@
+table ProductPhoto
+	lineageTag: ac7c60fa-828f-47b6-942b-6213229037c0
+	sourceLineageTag: [Production].[ProductPhoto]
+
+	column ProductPhotoID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 680608fa-2048-4f98-a4ac-07da6740e5cb
+		sourceLineageTag: ProductPhotoID
+		summarizeBy: count
+		sourceColumn: ProductPhotoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ThumbnailPhotoFileName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: cc312987-aebe-4cb2-9278-1ffa17de174a
+		sourceLineageTag: ThumbnailPhotoFileName
+		summarizeBy: none
+		sourceColumn: ThumbnailPhotoFileName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LargePhotoFileName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4b988c58-fa8f-4c71-a825-dfccb4ff385d
+		sourceLineageTag: LargePhotoFileName
+		summarizeBy: none
+		sourceColumn: LargePhotoFileName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ef50475f-bfba-40f4-8c63-84fb5ad90e57
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductPhoto = entity
+		mode: directLake
+		source
+			entityName: ProductPhoto
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

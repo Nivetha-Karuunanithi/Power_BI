@@ -1,0 +1,46 @@
+table PersonCreditCard
+	lineageTag: 3097ee5e-90ca-4ea4-a075-53809d54a92b
+	sourceLineageTag: [Sales].[PersonCreditCard]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1a8953e1-e0f1-43dc-afda-1deec48d0542
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditCardID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a43424b2-0583-4756-b653-bd10bf0d925c
+		sourceLineageTag: CreditCardID
+		summarizeBy: count
+		sourceColumn: CreditCardID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1bb7c5e4-cb04-47b9-94b9-0055a39a3c58
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PersonCreditCard = entity
+		mode: directLake
+		source
+			entityName: PersonCreditCard
+			schemaName: Sales
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

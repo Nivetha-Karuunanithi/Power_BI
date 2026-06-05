@@ -1,0 +1,146 @@
+table Person
+	lineageTag: 22fe547a-2b12-4c99-8049-d9578f0c6de2
+	sourceLineageTag: [Person].[Person]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 30414fed-6eb9-4ae2-83ae-812ffeb10277
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonType
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: dfec7818-db19-476f-b112-75b145ffcd64
+		sourceLineageTag: PersonType
+		summarizeBy: none
+		sourceColumn: PersonType
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameStyle
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 224a6bbc-b59d-4b6b-9938-32b0c47e9f64
+		sourceLineageTag: NameStyle
+		summarizeBy: none
+		sourceColumn: NameStyle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: e0f6e23a-dfe6-4b44-9a10-ba1de5b4d6b7
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 020d8b03-4b51-4e02-adcc-ab9b86760da1
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8594f6ee-af6b-4bb2-8329-4a3927a41c60
+		sourceLineageTag: MiddleName
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 1d1b4560-32cc-44d5-9014-861967b164ac
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 57429d19-1daa-454a-9849-fca9f54bfe98
+		sourceLineageTag: Suffix
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 57b06eb9-80d0-4c54-b11a-d2e6a89b54de
+		sourceLineageTag: EmailPromotion
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalContactInfo
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 18afc598-a02c-40cc-8302-03d1fca60170
+		sourceLineageTag: AdditionalContactInfo
+		summarizeBy: none
+		sourceColumn: AdditionalContactInfo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Demographics
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: efdfbf15-2e99-447e-8aeb-64a3546241b8
+		sourceLineageTag: Demographics
+		summarizeBy: none
+		sourceColumn: Demographics
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 6ed35a22-bf0a-4e9f-87b6-4bfd0d07ac60
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 950ac642-f7c1-42fe-aeb6-318af8037f33
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Person = entity
+		mode: directLake
+		source
+			entityName: Person
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

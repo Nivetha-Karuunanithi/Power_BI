@@ -1,0 +1,45 @@
+table Illustration
+	lineageTag: 6ef7d1dc-d7a9-4c68-8dfa-2b6be1d26f85
+	sourceLineageTag: [Production].[Illustration]
+
+	column IllustrationID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fa4402c0-dc11-464c-b7ef-42e50df58674
+		sourceLineageTag: IllustrationID
+		summarizeBy: count
+		sourceColumn: IllustrationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Diagram
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: befc4e6e-85fb-4af9-80dc-4a6fae62af60
+		sourceLineageTag: Diagram
+		summarizeBy: none
+		sourceColumn: Diagram
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4fb8c2b5-ae73-45da-90ff-be34d853e9d4
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Illustration = entity
+		mode: directLake
+		source
+			entityName: Illustration
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

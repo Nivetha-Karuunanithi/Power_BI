@@ -1,0 +1,45 @@
+table ProductDocument
+	lineageTag: 0d30c8ee-ea06-4854-a53e-6a0b9e27b8b9
+	sourceLineageTag: [Production].[ProductDocument]
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 482a8863-467c-4214-9d4e-76432e78c8a8
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentNode
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 55254538-318c-45b2-8004-be24b0ff7b36
+		sourceLineageTag: DocumentNode
+		summarizeBy: none
+		sourceColumn: DocumentNode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ea0675e1-4cc0-4b5d-8cad-0d701f7ef7ac
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductDocument = entity
+		mode: directLake
+		source
+			entityName: ProductDocument
+			schemaName: Production
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

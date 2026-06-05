@@ -1,0 +1,66 @@
+table EmailAddress
+	lineageTag: f24fa8b5-ecce-488a-9cf3-7fea6b708101
+	sourceLineageTag: [Person].[EmailAddress]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 66ceb920-ab31-4ed1-8844-285a7499e69e
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddressID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 48d54ab2-e3ce-4d34-9462-8b3e4a82af98
+		sourceLineageTag: EmailAddressID
+		summarizeBy: count
+		sourceColumn: EmailAddressID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 52327483-128b-4265-8ef3-2e1bdef435fa
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 6d91bd6e-b387-48fe-ba93-8ef22045659b
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5522a0a9-7c42-44d5-be2f-105d72c9a4a7
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EmailAddress = entity
+		mode: directLake
+		source
+			entityName: EmailAddress
+			schemaName: Person
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,169 @@
+table Employee
+	lineageTag: ef359e28-265e-4f72-9111-a48e651f7e60
+	sourceLineageTag: [HumanResources].[Employee]
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2089310d-c29e-4ca3-9dae-cefe0377e66f
+		sourceLineageTag: BusinessEntityID
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NationalIDNumber
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 0e65d7ec-1a9e-40de-b960-fa197f71003e
+		sourceLineageTag: NationalIDNumber
+		summarizeBy: none
+		sourceColumn: NationalIDNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoginID
+		dataType: string
+		sourceProviderType: varchar(512)
+		lineageTag: fbfc62b4-fd0e-4bb9-877c-79d1d97c2025
+		sourceLineageTag: LoginID
+		summarizeBy: none
+		sourceColumn: LoginID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrganizationNode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3699c6e5-18d8-411f-9011-5ade6e578198
+		sourceLineageTag: OrganizationNode
+		summarizeBy: none
+		sourceColumn: OrganizationNode
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 761719bc-aa54-4e58-a526-e7be8035446c
+		sourceLineageTag: JobTitle
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 17521140-6230-4a62-b703-7d0f08462089
+		sourceLineageTag: BirthDate
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 9ab8e55d-c2e1-4434-98ef-e4eea1370103
+		sourceLineageTag: MaritalStatus
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 67236ab4-8180-42d0-8795-bcba6e274ad4
+		sourceLineageTag: Gender
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column HireDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: a57a033e-ed49-43a6-b03a-324d8fe23f2f
+		sourceLineageTag: HireDate
+		summarizeBy: none
+		sourceColumn: HireDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalariedFlag
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 8072e263-3711-457a-aa63-0fd686cecdde
+		sourceLineageTag: SalariedFlag
+		summarizeBy: none
+		sourceColumn: SalariedFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column VacationHours
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 4e969388-e5f3-405b-a1f6-5da9db58abb1
+		sourceLineageTag: VacationHours
+		summarizeBy: sum
+		sourceColumn: VacationHours
+
+		annotation SummarizationSetBy = Automatic
+
+	column SickLeaveHours
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 83573d59-1cfc-42bc-ab1e-54e7b8cd04a2
+		sourceLineageTag: SickLeaveHours
+		summarizeBy: sum
+		sourceColumn: SickLeaveHours
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentFlag
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: e93414d1-754a-4026-80fb-a55f47db6334
+		sourceLineageTag: CurrentFlag
+		summarizeBy: none
+		sourceColumn: CurrentFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: b51c0668-176e-4162-8a19-aeeff573da28
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f9ff0322-05f6-4df4-b0c3-7d3c374fc1c0
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Employee = entity
+		mode: directLake
+		source
+			entityName: Employee
+			schemaName: HumanResources
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
