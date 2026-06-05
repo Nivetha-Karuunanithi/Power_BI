@@ -15,7 +15,7 @@ annotation PBI_QueryOrder = ["Boomi Process Monitoring","critical jobs (2)","Err
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.130.930.0 (24.06)
+annotation PBI_ProTooling = ["DevMode"]
 
 ref table 'Boomi Process Monitoring'
 ref table DateTableTemplate_8d390865-6ff5-420a-a86b-6d83d18d7edd
