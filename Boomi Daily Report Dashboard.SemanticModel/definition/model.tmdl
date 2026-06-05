@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 02/18/2024 08:17:45 AM.
+queryGroup 'Query Errors - 02/18/2024 08:17:45 AM'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["Boomi Process Monitoring","critical jobs (2)","Errors in critical jobs (2)"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.130.930.0 (24.06)
+
+ref table 'Boomi Process Monitoring'
+ref table DateTableTemplate_8d390865-6ff5-420a-a86b-6d83d18d7edd
+ref table LocalDateTable_7726cbe5-9c2c-47c1-8e4a-5ed064980120
+ref table LocalDateTable_7211c870-d960-4503-af6f-9536fe6001eb
+ref table LocalDateTable_e9cc24cb-9acf-4e57-90c3-c99f7bc05012
+ref table LocalDateTable_f93ed65f-9aa5-41b4-910f-3be05f01c8b6
+ref table 'critical jobs (2)'
+ref table LocalDateTable_67784bfe-bbc1-4e9d-b5af-b750eaf22d63
+
+ref cultureInfo en-US
+

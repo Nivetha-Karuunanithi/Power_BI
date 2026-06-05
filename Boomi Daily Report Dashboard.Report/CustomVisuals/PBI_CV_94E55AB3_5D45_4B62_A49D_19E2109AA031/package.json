@@ -1,0 +1,29 @@
+{
+  "version": "1.0.4",
+  "author": {
+    "name": "Jon Gallant",
+    "email": "jon@jongallant.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/PBI_CV_94E55AB3_5D45_4B62_A49D_19E2109AA031.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "PBI_CV_94E55AB3_5D45_4B62_A49D_19E2109AA031",
+    "name": "liquidFillGauge",
+    "displayName": "Liquid Fill Gauge",
+    "version": "1.0.4",
+    "description": "The Liquid Fill Gauge custom visual is perfect to use when you want to visualize data that represents liquid levels. For example, if you have an IoT device that monitors your barbeque grill's propane tank level, you could send that data to Power BI and use the Liquid Fill Gauge to see how empty or full it is from anywhere in the world.",
+    "supportUrl": "https://github.com/jongio/PowerBI-visuals-liquidFillGauge/issues",
+    "gitHubUrl": "https://github.com/jongio/PowerBI-visuals-liquidFillGauge",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}
