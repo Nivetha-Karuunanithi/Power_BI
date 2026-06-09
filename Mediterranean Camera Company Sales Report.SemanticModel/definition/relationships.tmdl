@@ -1,0 +1,9 @@
+relationship 64f42904-726e-41b2-b9ac-fddfaeb6e658
+	joinOnDateBehavior: datePartOnly
+	fromColumn: camera_calendar_dataset.Date
+	toColumn: LocalDateTable_8764843e-08b1-464f-99d0-743e5f1fa12b.Date
+
+relationship 9f0eaf8a-3339-bfdc-4915-b737811132f3
+	fromColumn: camera_company_dataset.Date
+	toColumn: camera_calendar_dataset.Date
+

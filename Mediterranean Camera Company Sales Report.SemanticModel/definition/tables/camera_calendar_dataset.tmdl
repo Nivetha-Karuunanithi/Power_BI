@@ -1,0 +1,125 @@
+table camera_calendar_dataset
+	lineageTag: d758d435-5b7a-45de-88b2-f5e560afec8e
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3cf9b22f-cada-4920-8edf-f0e6dd5505c0
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 64f42904-726e-41b2-b9ac-fddfaeb6e658
+			defaultHierarchy: LocalDateTable_8764843e-08b1-464f-99d0-743e5f1fa12b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9687d28a-d821-4637-b563-295b27f3f0a5
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b61fcbe-ef91-4c9e-8ee1-553c7c24f3ef
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = User
+
+	column 'Quarter (Q)'
+		dataType: string
+		lineageTag: e3d6d9f4-c777-4678-a503-2ef4050b6cc9
+		summarizeBy: none
+		sourceColumn: Quarter (Q)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: cd13a337-3894-4e59-adeb-050924bf83c0
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 90afb6e9-1e17-469d-ab44-5866c935ef53
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Characters'
+		dataType: string
+		lineageTag: 8ed4f3b1-5456-46df-aae8-2a133bb444f7
+		summarizeBy: none
+		sourceColumn: First Characters
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: fda22b78-f933-4cee-859f-acd430cf553e
+		summarizeBy: none
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = User
+
+	column 'Day Full Name'
+		dataType: string
+		lineageTag: effebf4b-efe1-4c4d-b71c-31d05f819ab4
+		summarizeBy: none
+		sourceColumn: Day Full Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 6d5e069c-06d9-4368-a296-9ec530f37898
+		summarizeBy: none
+		sourceColumn: Day Name
+		sortByColumn: 'Day of Week'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Type'
+		dataType: string
+		lineageTag: 1598457a-9fc4-49cc-a30e-0895c8e5df1e
+		summarizeBy: none
+		sourceColumn: Day Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition camera_calendar_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=PostgreSQL35W", [HierarchicalNavigation=true]),
+				    bfxpostgresql_Database = Source{[Name="bfxpostgresql",Kind="Database"]}[Data],
+				    public_Schema = bfxpostgresql_Database{[Name="public",Kind="Schema"]}[Data],
+				    camera_company_Table = public_Schema{[Name="camera_company",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(camera_company_Table,{{"Weekday - Weekend", "Day Type"}, {"Day Name (S)", "Day Name"}, {"Day Name", "Day Full Name"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
