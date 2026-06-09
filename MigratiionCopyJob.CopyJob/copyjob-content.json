@@ -1,0 +1,2052 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "SqlServerTable",
+      "connectionSettings": {
+        "type": "SqlServer",
+        "typeProperties": {
+          "database": "AdventureWorks2019"
+        },
+        "externalReferences": {
+          "connection": "ad43d0db-edf9-44f3-b473-37bb273e3cc4"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "d1148e0b-b246-ab14-4678-daae443cd1d4",
+          "endPoint": "gndybi74jcrepkmc2pket34jt4-ac5z4wxwirmetn7ywya2c46xmi.datawarehouse.fabric.microsoft.com"
+        },
+        "externalReferences": {
+          "connection": "c6a05a06-c6f8-4d7a-9f67-bffc1ab66667"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "copy-Sales-SalesTaxRate-0",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesTaxRate"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesTaxRate"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-PersonCreditCard-1",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "PersonCreditCard"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "PersonCreditCard"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-PersonPhone-2",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "PersonPhone"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "PersonPhone"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesTerritory-3",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesTerritory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesTerritory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-PhoneNumberType-4",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "PhoneNumberType"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "PhoneNumberType"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-Product-5",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Product"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Product"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesTerritoryHistory-6",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesTerritoryHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesTerritoryHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ScrapReason-7",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ScrapReason"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ScrapReason"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-Shift-8",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Shift"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Shift"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductCategory-9",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductCategory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductCategory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Purchasing-ShipMethod-10",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "ShipMethod"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "ShipMethod"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductCostHistory-11",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductCostHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductCostHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductDescription-12",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductDescription"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductDescription"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-ShoppingCartItem-13",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "ShoppingCartItem"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "ShoppingCartItem"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductDocument-14",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductDocument"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductDocument"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-dbo-DatabaseLog-15",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "DatabaseLog"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "DatabaseLog"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductInventory-16",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductInventory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductInventory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SpecialOffer-17",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SpecialOffer"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SpecialOffer"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-dbo-ErrorLog-18",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "ErrorLog"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "ErrorLog"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductListPriceHistory-19",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductListPriceHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductListPriceHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-Address-20",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "Address"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "Address"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SpecialOfferProduct-21",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SpecialOfferProduct"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SpecialOfferProduct"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductModel-22",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductModel"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductModel"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-AddressType-23",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "AddressType"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "AddressType"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-StateProvince-24",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "StateProvince"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "StateProvince"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductModelIllustration-25",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductModelIllustration"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductModelIllustration"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-dbo-AWBuildVersion-26",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "AWBuildVersion"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "AWBuildVersion"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductModelProductDescriptionCulture-27",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductModelProductDescriptionCulture"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductModelProductDescriptionCulture"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-BillOfMaterials-28",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "BillOfMaterials"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "BillOfMaterials"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-Store-29",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Store"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Store"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductPhoto-30",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductPhoto"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductPhoto"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductProductPhoto-31",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductProductPhoto"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductProductPhoto"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-TransactionHistory-32",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "TransactionHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "TransactionHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductReview-33",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductReview"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductReview"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-BusinessEntity-34",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "BusinessEntity"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "BusinessEntity"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-TransactionHistoryArchive-35",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "TransactionHistoryArchive"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "TransactionHistoryArchive"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-ProductSubcategory-36",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductSubcategory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "ProductSubcategory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-BusinessEntityAddress-37",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "BusinessEntityAddress"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "BusinessEntityAddress"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Purchasing-ProductVendor-38",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "ProductVendor"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "ProductVendor"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-BusinessEntityContact-39",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "BusinessEntityContact"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "BusinessEntityContact"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-UnitMeasure-40",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "UnitMeasure"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "UnitMeasure"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Purchasing-Vendor-41",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "Vendor"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "Vendor"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-ContactType-42",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "ContactType"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "ContactType"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-CountryRegionCurrency-43",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "CountryRegionCurrency"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "CountryRegionCurrency"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-CountryRegion-44",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "CountryRegion"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "CountryRegion"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-WorkOrder-45",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "WorkOrder"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "WorkOrder"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Purchasing-PurchaseOrderDetail-46",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "PurchaseOrderDetail"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "PurchaseOrderDetail"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-Employee-Backup-47",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Employee_Backup"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Employee_Backup"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-CreditCard-48",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "CreditCard"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "CreditCard"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-Employee-49",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Employee"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Employee"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-Culture-50",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Culture"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Culture"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-WorkOrderRouting-51",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "WorkOrderRouting"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "WorkOrderRouting"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-Currency-52",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Currency"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Currency"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Purchasing-PurchaseOrderHeader-53",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "PurchaseOrderHeader"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Purchasing",
+            "table": "PurchaseOrderHeader"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-CurrencyRate-54",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "CurrencyRate"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "CurrencyRate"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-Customer-55",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Customer"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Customer"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-Department-56",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Department"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "Department"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-Document-57",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Document"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Document"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesOrderDetail-58",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesOrderDetail"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesOrderDetail"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-EmailAddress-59",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "EmailAddress"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "EmailAddress"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesOrderHeader-60",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesOrderHeader"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesOrderHeader"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-EmployeeDepartmentHistory-61",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "EmployeeDepartmentHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "EmployeeDepartmentHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-EmployeePayHistory-62",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "EmployeePayHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "EmployeePayHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesOrderHeaderSalesReason-63",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesOrderHeaderSalesReason"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesOrderHeaderSalesReason"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesPerson-64",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesPerson"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesPerson"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-Illustration-65",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Illustration"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Illustration"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-HumanResources-JobCandidate-66",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "JobCandidate"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "HumanResources",
+            "table": "JobCandidate"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Production-Location-67",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Location"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Production",
+            "table": "Location"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-Password-68",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "Password"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "Password"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesPersonQuotaHistory-69",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesPersonQuotaHistory"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesPersonQuotaHistory"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Person-Person-70",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "Person"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Person",
+            "table": "Person"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "copy-Sales-SalesReason-71",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesReason"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "SalesReason"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "CopyJob",
+    "displayName": "MigratiionCopyJob",
+    "description": "Created for Migrating Data using application"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8f09f437-f04e-95a3-40cb-a9d8b754f509"
+  }
+}
