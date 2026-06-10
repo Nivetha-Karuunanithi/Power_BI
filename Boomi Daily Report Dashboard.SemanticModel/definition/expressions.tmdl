@@ -1,0 +1,23 @@
+expression 'Errors in critical jobs (2)' =
+		let
+		Source = #"critical jobs (2)",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Deployed Name", "Short Deployed Name", "Schedule time", "Last Run time", "# Success", "# Failures", "# Documents Processed", "Failure message", "Comments", "Step taken"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Deployed Name", "Short Deployed Name", "Schedule time", "Last Run time", "# Success", "# Failures", "# Documents Processed", "Failure message", "Comments", "Step taken"})
+		in
+		  #"Reordered Columns"
+	lineageTag: ed5a92f0-0474-4b15-a15b-da5652aea5f8
+	queryGroup: 'Query Errors - 02/18/2024 08:17:45 AM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
