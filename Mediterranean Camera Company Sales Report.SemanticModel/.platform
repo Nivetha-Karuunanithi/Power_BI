@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Mediterranean Camera Company Sales Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8dd1a91e-0fc6-be31-4569-fffe09d6f553"
+  }
+}
